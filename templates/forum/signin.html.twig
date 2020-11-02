@@ -1,0 +1,33 @@
+{% extends 'forum.html.twig' %}
+{% block body %}
+
+    <form method="post">
+        <section class="section-login">
+            <div class="group">
+                <label class="label">Nom</label>
+                <input type="text" name="lastName" class="form-control">
+            </div>
+            <div class="group">
+                <label class="label">Prénom</label>
+                <input type="text" name="firstName" class="form-control">
+            </div>
+            <div class="group">
+                <label class="label">Sexe</label>
+                <input type="text" name="sexe" class="form-control">
+            </div>
+            <div class="group">
+                <label class="label">E-mail</label>
+                <input type="email" name="email" id="inputEmail" class="form-control">
+            </div>
+            <div class="group">
+                <label class="label">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control">
+            </div>
+            <div class="group wrapper-button">
+                <input type="submit" class="button" value="Connexion">
+            </div>
+
+        </section>
+    </form>
+
+{% endblock %}

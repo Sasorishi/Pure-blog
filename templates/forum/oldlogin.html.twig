@@ -3,14 +3,15 @@
 
     <form method="post">
         {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+        {{ dump(error) }}
         <section class="section-login">
             <div class="login-wrap">
                 <div class="login-html">
@@ -31,19 +32,6 @@
                             </div>
                             <div class="group wrapper-button">
                                 <input type="submit" class="button" value="Connexion">
-                            </div>
-                        </div>
-                        <div class="for-pwd-htm">
-                            <div class="group">
-                                <label class="label">E-mail</label>
-                                <input id="user" type="text" class="input">
-                            </div>
-                            <div class="group">
-                                <label class="label">Mot de passe</label>
-                                <input id="pass" type="password" class="input" data-type="password">
-                            </div>
-                            <div class="group wrapper-button">
-                                <input type="submit" class="button" value="Inscription">
                             </div>
                         </div>
                     </div>
