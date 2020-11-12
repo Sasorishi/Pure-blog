@@ -47,4 +47,19 @@ class TopicsRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Topics[]
+     */
+    public function findByCategories($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT t FROM App\Entity\Topics t WHERE t.idcategorie = :id'
+        )->setParameter('id', $id);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

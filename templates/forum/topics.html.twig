@@ -1,0 +1,7 @@
+{% extends 'forum.html.twig' %}
+{% block body %}
+
+    {% for topic in topics %}
+        <a href=""><p>{{ topic.topics }}</p></a>
+    {% endfor %}
+{% endblock %}

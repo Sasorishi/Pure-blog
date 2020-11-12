@@ -3,4 +3,8 @@
 
     <h1>Forum</h1>
 
+    {% for category in categoriesForum %}
+        <a href="{{ path('topics', {'id': category.idcategorie, 'topics': category.label}) }}"><p>{{ category.label }}</p></a>
+    {% endfor %}
+
 {% endblock %}
