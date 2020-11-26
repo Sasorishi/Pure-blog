@@ -124,4 +124,30 @@ class AppController extends AbstractController
         $manager->persist($post);
         $manager->flush();
     }
+
+    /**
+     * @Route("/forum/{id}_{topics}", name="post")
+     */
+    public function post(Request $request, Security $security, $id, $topics): Response
+    {
+        $posts = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->findByTopics($id);
+        
+        if($request->request->count() > 0)
+        {
+            dump($request);
+            // Get user id currently logged
+            $idUser = $this->get('security.token_storage')->getToken()->getUser()->getIduser();
+
+            $this->createPost($request, $idUser, $id);
+            //return $this->redirect($request->getUri());
+        }
+
+        return $this->render('forum/post.html.twig', [
+            'controller_name' => 'AppController',
+            'topics' => $topics,
+            'posts' => $posts
+        ]);
+    }
 }

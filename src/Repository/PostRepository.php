@@ -47,4 +47,19 @@ class PostRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Post[]
+     */
+    public function findByTopics($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT t FROM App\Entity\Post t WHERE t.idtopics = :id ORDER BY t.created ASC'
+        )->setParameter('id', $id);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

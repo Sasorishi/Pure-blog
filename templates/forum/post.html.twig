@@ -1,0 +1,26 @@
+{% extends 'forum.html.twig' %}
+{% block body %}
+
+<h1>{{ topics }}</h1>
+
+{% if posts is empty %}
+    <p>Aucun message</p>
+{% else %}
+    {% for post in posts %}
+        <p>{{ post.content }}</p>
+    {% endfor %}
+{% endif %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Message</label>
+            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Répondre</button>
+    </form>
+{% else %}
+    <p>Connecter vous pour répondre</p>
+{% endif %}
+
+{% endblock %}
