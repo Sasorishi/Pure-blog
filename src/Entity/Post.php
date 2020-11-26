@@ -31,7 +31,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="date", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=false)
      */
     private $created;
 
