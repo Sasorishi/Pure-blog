@@ -1,3 +1,419 @@
+/* #### Main Theme #### */
+
+:root {
+	--creme-color: #FEF6E4;
+	--black-color: #171717;
+	--gold-color: #795F37;
+	--snow-color: #FEFBF5;
+}
+
+/* #### Menu Burger #### */
+#menu__toggle {
+  opacity: 0;
+  display: none;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.hamburger-menu {
+	position: absolute;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--snow-color);
+  transition-duration: .25s;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: var(--black-color);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  transition-duration: .25s;
+  z-index: 1;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: var(--snow-color);
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+/* #### Brand #### */
+
+.brand {
+	background-image: url("/assets/img/img_1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.brand img {
+	width: 400px;
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
+/* #### Section #### */
+
+.wrapper-content {
+	padding: 65px;
+}
+
+/* #### Manifesto #### */
+
+.manifesto {
+	background-color: var(--black-color);
+	padding: 30px;
+}
+
+.manifesto .wrapper-text {
+	color: var(--snow-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 4rem;
+	width: 100%;
+}
+
+/* #### About us #### */
+
+.aboutus {
+	background-color: var(--snow-color);
+	padding: 30px;
+}
+
+.aboutus .label {
+	/* background-color: var(--black-color); */
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.aboutus .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
+}
+
+/* #### Selection #### */
+
+.selection {
+	background-color: var(--creme-color);
+	padding: 30px;
+}
+
+.selection .label {
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.selection .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
+}
+
+.selection .btn {
+	width: 200px;
+	background-color: var(--black-color);
+	color: var(--snow-color);
+	margin-top: 60px;
+	margin-bottom: 30px;
+	border-radius: 20px;
+}
+
+/* #### Ethique #### */
+
+.ethique {
+	background-color: var(--snow-color);
+	padding: 30px;
+}
+
+.ethique .wrapper-img {
+	background-color: red;
+	height: 100%; 
+	width: 100%;
+	border-radius: 10px;
+}
+
+.wrapper-img img {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.ethique .wrapper-text {
+	background-color: var(--creme-color);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.ethique .wrapper-text p {
+	color: var(--black-color);
+}
+
+.ethique .label {
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.ethique .btn {
+	background-color: var(--black-color) !important;
+	color: var(--snow-color);
+}
+
+/* #### Solidaire #### */
+
+.solidaire {
+	background-color: var(--creme-color);
+	padding: 30px;
+}
+
+.solidaire .wrapper-img {
+	background-color: red;
+	height: 100%; 
+	width: 100%;
+	border-radius: 10px;
+}
+
+.wrapper-img img {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.solidaire .wrapper-text {
+	background-color: var(--snow-color);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.solidaire .wrapper-text p {
+	color: var(--black-color);
+}
+
+.solidaire .label {
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.solidaire .btn {
+	background-color: var(--black-color) !important;
+	color: var(--snow-color);
+}
+
+/* #### Ecologique #### */
+
+.ecologique {
+	background-color: var(--snow-color);
+	padding: 30px;
+}
+
+.ecologique .wrapper-img {
+	background-color: red;
+	height: 100%; 
+	width: 100%;
+	border-radius: 10px;
+}
+
+.wrapper-img img {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.ecologique .wrapper-text {
+	background-color: var(--creme-color);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.ecologique .wrapper-text p {
+	color: var(--black-color);
+}
+
+.ecologique .label {
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.ecologique .btn {
+	background-color: var(--black-color) !important;
+	color: var(--snow-color);
+}
+
+/* #### Team #### */
+
+.team {
+	display: block;
+	padding: 30px;
+}
+
+.team .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
+}
+
+.team .label {
+	/* background-color: var(--black-color); */
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.team-content {
+	width: 100%;
+	padding: 20px;
+}
+
+.team-name {
+  	color: #635c76;
+	font-size: 18px;
+	text-align: center;
+}
+
+.job {
+  	color: #a39eb3;
+  	font-size: 14px;
+}
+
+.team-img img { 
+	width: 70%; 
+	display: block;
+	border-radius: 200px;
+	padding: 20px;
+	margin: auto;
+}
+
+/* #### Contact #### */
+
+.contact {
+	padding: 30px;
+	background-color: var(--creme-color);
+}
+
+.contact .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
+}
+
+.contact .label {
+	/* background-color: var(--black-color); */
+	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 2rem;
+	width: 100%;
+}
+
+.contact img {
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
+}
+
+.socialmedia img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+
+.social-content {
+	margin-top: 20px;
+}
+
+.newsletter-content .btn {
+	background-color: var(--black-color);
+	color: var(--snow-color);
+	border-radius: 20px;
+}
+
 /* #### Login #### */
 
 .section-login {
@@ -174,93 +590,10 @@ footer {
     padding: 40px;
 }
 
-footer .section-title {
-    text-align: center;
-    color: #007b5e;
-    margin-bottom: 50px;
-    text-transform: uppercase;
+footer p {
+	color: var(--snow-color);
 }
 
-#footer {
-    background: #007b5e !important;
-}
-
-#footer h5{
-	padding-left: 10px;
-    border-left: 3px solid #eeeeee;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-    color:#ffffff;
-}
-
-#footer a {
-    color: #ffffff;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-
-#footer ul.social li{
-	padding: 3px 0;
-}
-
-#footer ul.social li a i {
-    margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-
-#footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:-10px;
-}
-
-#footer ul.social li a,
-#footer ul.quick-links li a{
-	color:#ffffff;
-}
-
-#footer ul.social li a:hover{
-	color:#eeeeee;
-}
-
-#footer ul.quick-links li{
-	padding: 3px 0;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-
-#footer ul.quick-links li:hover{
-	padding: 3px 0;
-	margin-left:5px;
-	font-weight:700;
-}
-
-#footer ul.quick-links li a i{
-	margin-right: 5px;
-}
-
-#footer ul.quick-links li:hover a i {
-    font-weight: 700;
-}
-
-#footer p {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-@media (max-width:767px){
-    #footer h5 {
-        padding-left: 0;
-        border-left: transparent;
-        padding-bottom: 0px;
-        margin-bottom: 10px;
-    }
-}
-
-.wrapper-button {
-    margin-top: 5rem;
+footer {
+    background-color: var(--black-color);
 }
