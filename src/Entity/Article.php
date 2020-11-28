@@ -69,6 +69,11 @@ class Article
      */
     private $idcategorie;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
+
     public function getIdarticle(): ?int
     {
         return $this->idarticle;
@@ -142,6 +147,18 @@ class Article
     public function setIdcategorie(?Categoriesarticle $idcategorie): self
     {
         $this->idcategorie = $idcategorie;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

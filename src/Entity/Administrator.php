@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Administrator
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="administrator")
  * @ORM\Entity(repositoryClass="App\Repository\AdministratorRepository")
  */
-class Administrator
+class Administrator implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -45,16 +46,16 @@ class Administrator
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=25, nullable=false)
+     * @ORM\Column(name="email", type="string", length=45, nullable=false)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="passwordAdmin", type="string", length=25, nullable=false)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
-    private $passwordadmin;
+    private $password;
 
     /**
      * @var string|null
@@ -116,12 +117,12 @@ class Administrator
         return $this;
     }
 
-    public function getPasswordadmin(): ?string
+    public function getPassword(): ?string
     {
-        return $this->passwordadmin;
+        return $this->password;
     }
 
-    public function setPasswordadmin(string $passwordadmin): self
+    public function setPassword(string $password): self
     {
         $this->passwordadmin = $passwordadmin;
 
@@ -140,5 +141,62 @@ class Administrator
         return $this;
     }
 
+    // LOGIN FORM
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid('', true));
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function setUsername($email) {
+        $this->email = $email;
+    }
+
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->idadmin,
+            $this->email,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->idadmin,
+            $this->email,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized, array('allowed_classes' => false));
+    }
 
 }

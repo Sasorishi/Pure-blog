@@ -1,0 +1,103 @@
+{% extends 'dashboard.html.twig' %}
+{% block body %}
+
+    <h1>Article</h1>
+
+    <section>
+        <div class="container-fluid">
+            <div class="text-center">
+                <form method="post" enctype="multipart/form-data">
+                    <button type="button" class="btn btn-primary blog-button-load" data-toggle="modal" data-target="#addevent">
+                        Ajouter
+                    </button>
+                </form>
+            </div>
+
+            <div class="mb-3" id="myDiv">
+                <table id="table" data-toggle="table" data-search="true" data-show-columns="true" data-pagination="true" data-pagination-loop="false" data-cookie="true"
+                data-cookie-id-table="saveId" data-show-export="true" data-mobile-responsive="true" data-show-toggle="true">
+                    <thead>
+                        <tr>
+                            <th data-field="title" data-sortable="true">Title</th>
+                            <th data-field="created" data-sortable="true">Créer</th>
+                            <th data-field="status" data-sortable="true">Status</th>
+                            <th data-field=""></th>
+                        </tr>
+                        <tbody>
+                            {% for article in articles %}
+                            <tr>
+                                <td>
+                                    <span title="{{ article.title }}">{{ article.title }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ article.created|date("m/d/Y") }}">{{ article.created|date("m/d/Y") }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ article.status }}">{{ article.status }}</span>
+                                </td>
+                                <td>
+                                    <a target="_blank" href=""><i class="fas fa-map-marker-alt" style="padding: 5px;" aria-hidden="true"></i></a>
+                                    <a href=""><i class="fas fa-edit" style="padding: 5px" aria-hidden="true"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#deleteevent" data-id="" data-name=""><i class="fas fa-trash-alt" style="padding: 5px" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add event -->
+	<div class="modal fade" id="addevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ajouter un event</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form method="post" enctype="multipart/form-data">
+						<div class="container">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Selectionner une catégorie</label>
+                                <select class="form-control" name="playground">
+                                    <option value="">Test</option>
+                                </select>
+                            </div>
+							<div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputName">Titre</label>
+                                    <input class="form-control" type="text" name="name" placeholder="Evenement Parfum Paris 2021">
+                                </div>
+								<div class="form-group col-md-4">
+									<label for="inputTypologie">Date</label>
+									<input class="form-control" id="inputDate" type="datetime-local" name="date">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputTypologie">Description</label>
+								<textarea class="form-control" id="inputDescription" type="text" name="description" placeholder="LE SNEAKERS EVENT AURA LIEU LE 12 MAI 2019 À PARIS EXPO PORTE DE VERSAILLES"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Selectionner une image (820x500, 860 Ko max)</label>
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="upload" name="upload" accept="image/*">
+									<label class="custom-file-label" for="inputGroupFile01">Choisir le fichier</label>
+								</div>
+							</div>
+						
+							<div class="d-flex justify-content-center">
+								<input class="btn btn-primary blog-button-load" style="margin: 0;" type="submit" name="submit1" value="Valider">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
