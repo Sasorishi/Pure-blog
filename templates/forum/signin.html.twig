@@ -1,7 +1,7 @@
 {% extends 'forum.html.twig' %}
 {% block body %}
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <section class="section-login">
             <div class="group">
                 <label class="label">Nom</label>
@@ -12,8 +12,11 @@
                 <input type="text" name="firstName" class="form-control">
             </div>
             <div class="group">
-                <label class="label">Sexe</label>
-                <input type="text" name="sexe" class="form-control">
+                <label for="inputState">Sexe</label>
+                <select id="inputState" name="sexe" class="form-control">
+                  <option value="Homme">Homme</option>
+                  <option value="Femme">Femme</option>
+                </select>
             </div>
             <div class="group">
                 <label class="label">E-mail</label>
@@ -23,8 +26,12 @@
                 <label class="label">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control">
             </div>
+
+            <div class="custom-file">
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+            </div>
             <div class="group wrapper-button">
-                <input type="submit" class="button" value="Connexion">
+                <input type="submit" class="button" value="Inscription">
             </div>
 
         </section>

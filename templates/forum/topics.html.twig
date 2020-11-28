@@ -5,7 +5,7 @@
     <p>Aucun topics</p>
 {% else %}
     {% for topic in topics %}
-        <a href="">
+        <a href="{{ path('post', {'id': topic.idtopics, 'topics': topic.topics}) }}">
             <p>{{ topic.topics }}</p>
         </a>
     {% endfor %}

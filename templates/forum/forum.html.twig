@@ -1,10 +1,40 @@
 {% extends 'forum.html.twig' %}
 {% block body %}
 
-    <h1>Forum</h1>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Rejoignez la communauté PURE et posez toutes vos questions</h1>
+                    <p>Un espace d'échange consacré à vos questions sur les parfums confidentiels : parfumerie de niche,
+                        indépendante et responsable.</p>
+                </div>
 
-    {% for category in categoriesForum %}
-        <a href="{{ path('topics', {'id': category.idcategorie, 'topics': category.label}) }}"><p>{{ category.label }}</p></a>
-    {% endfor %}
+                <div class="col-4">
+                    <p>Le saviez-vous?
+                        Plus de 50% des consommateurs recherchent des parfums avec plus de naturalité, 62% se posent des
+                        questions sur la provenance des Matières Premières qui les composent et 53% pensent que certains
+                        cosmétiques seraient mauvais pour la peau…
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            {% for category in categoriesForum %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{{ path('topics', {'id': category.idcategorie, 'topics': category.label}) }}"><h5 class="card-title">{{ category.label }}</h5></a>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 
 {% endblock %}
