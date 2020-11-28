@@ -2,7 +2,7 @@ drop database if exists pure;
 create database pure;
 use pure;
 
-create table admin
+create table administrator
 (
     idAdmin int(5) not null auto_increment,
     firstName varchar(45) not null,
@@ -43,20 +43,32 @@ create table article
     thumbnail varchar(255) not null,
     created date not null,
     primary key (idArticle),
-    foreign key (idAdmin) references admin(idAdmin),
+    foreign key (idAdmin) references administrator(idAdmin),
     foreign key (idCategorie) references categoriesArticle(idCategorie)
 );
 
-create table eventUser
+create table event
 (
-    idArticle int(5) not null,
+    idEvent int(5) not null auto_increment,
+    idAdmin int(5) not null,
+    title varchar(255) not null,
+    content varchar(255) not null,
+    thumbnail varchar(255) not null,
+    created date not null,
+    primary key (idEvent),
+    foreign key (idAdmin) references administrator(idAdmin)
+);
+
+create table subEvent
+(
+    idEvent int(5) not null,
     idUser int(5) not null auto_increment,
     firstName varchar(25) not null,
     lastName varchar(25) not null,
-    email varchar(25) not null,
+    email varchar(45) not null,
     phone int(12) not null,
     primary key (idUser),
-    foreign key (idArticle) references article(idArticle)
+    foreign key (idEvent) references event(idEvent)
 );
 
 create table comment
