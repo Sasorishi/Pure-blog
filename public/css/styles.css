@@ -12,12 +12,84 @@ h1 {
 	font-weight: 700 !important;
 }
 
-p, h5 {
+p, h5, span {
 	font-family: 'Cinzel', serif;
 }
 
+/* #### Menu Navigation #### */
+
+.navbar-background {
+	background-color: var(--snow-color);
+}
+
+.logo-brand img{
+	width: 70px;
+}
+
+.navbar-text {
+	color: var(--black-color);
+	font-size: 18px;
+	padding: 5px;
+}
+
+.navbar-position {
+	position: absolute;
+	right: 15px;
+}
+
+.navbar .social {
+	padding: 5px;
+}
+
+.navbar .social img {
+	width: 24px;
+}
+
+#top-menu a:hover {
+    color: #ffb294;
+}
+
+#top-menu li.active a {
+    color: #ffb294;
+}
+
+.return-website {
+	background-color: #ffffff;
+	color: #F7B387;
+	border-radius: 10px;
+	width: 75px;
+	height: 40px;
+}
+
+.return-website:hover {
+	background-color: #FD5F79;
+	color: #F7B387;
+}
+
+.return-website i {
+	margin-right: 5px;
+}
+
+/* #### Menu Navigation Dashboard #### */
+
+.navbar-text-dashboard {
+	color: var(--snow-color);
+}
+
+.navbar-text-dashboard a:hover {
+	color: #FD5F79;
+}
+
+.navbar-text-dashboard li a:active a {
+	color: #FD5F79;
+}
+
+.navbar-blog-background {
+	background-color: var(--black-color);
+}
+
 /* #### Menu Burger #### */
-#menu__toggle {
+/* #menu__toggle {
   opacity: 0;
   display: none;
 }
@@ -110,7 +182,7 @@ p, h5 {
   background-color: var(--snow-color);
   color: var(--black-color);
   text-decoration: none;
-}
+} */
 
 /* #### Brand #### */
 
@@ -623,9 +695,9 @@ footer {
 }
 
 footer p {
-	color: var(--snow-color);
+	color: var(--black-color);
 }
 
 footer {
-    background-color: var(--black-color);
+    background-color: var(--snow-color);
 }
