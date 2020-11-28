@@ -51,7 +51,10 @@ class AppController extends AbstractController
             ->getRepository(Topics::class)
             ->findByCategories($id);
         
-        dump($topics);
+        if(!$topics)
+        {
+            throw $this->createNotFoundException('No topics');
+        }
 
         if($request->request->count() > 0)
         {
@@ -123,6 +126,8 @@ class AppController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $manager->persist($post);
         $manager->flush();
+
+        return new Response('Topics created');
     }
 
     /**
@@ -133,15 +138,19 @@ class AppController extends AbstractController
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
             ->findByTopics($id);
+
+        if(!$post)
+        {
+            throw $this->createNotFoundException('No post');
+        }
         
         if($request->request->count() > 0)
         {
-            dump($request);
             // Get user id currently logged
             $idUser = $this->get('security.token_storage')->getToken()->getUser()->getIduser();
 
             $this->createPost($request, $idUser, $id);
-            //return $this->redirect($request->getUri());
+            return $this->redirect($request->getUri());
         }
 
         return $this->render('forum/post.html.twig', [
