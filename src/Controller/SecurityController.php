@@ -7,8 +7,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+
+use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\User;
 
@@ -38,21 +41,60 @@ class SecurityController extends AbstractController
     {
         if($request->isMethod('POST'))
         {
-            dump($request);
+            // Check request if all champs isn't not empty or null
+            $arr = array('firstName', 'lastName', 'sexe', 'email', 'password');
+            foreach ($arr as $value) 
+            {
+                if (!empty($request->request->get($value))) 
+                {
+                    dump("Resquest valided : ". $value);
+                    $addUser = true;
+                } 
+                else
+                {
+                    dump("Resquest failed : ". $value);
+                    $addUser = false;
+                    break;
+                }
+            }
 
-            $user = new User();
+            // Insert new user
+            if($addUser == true)
+            {
+                $user = new User();
 
-            $plainPassword = $request->request->get('password');
-            $encoded = $encoder->encodePassword($user, $plainPassword);
+                // Encode password
+                $plainPassword = $request->request->get('password');
+                $encoded = $encoder->encodePassword($user, $plainPassword);
 
-            $user->setFirstname($request->request->get('firstName'))
-                ->setLastname($request->request->get('lastName'))
-                ->setSexe($request->request->get('sexe'))
-                ->setEmail($request->request->get('email'))
-                ->setPassword($encoded);
+                // Get filename
+                $uploadFile = $request->files->get('avatar');
+                $nameFile = $request->files->get('avatar')->getClientOriginalName();
+    
+                $user->setFirstname($request->request->get('firstName'))
+                    ->setLastname($request->request->get('lastName'))
+                    ->setSexe($request->request->get('sexe'))
+                    ->setEmail($request->request->get('email'))
+                    ->setAvatar($nameFile)
+                    ->setPassword($encoded);
+    
+                $manager->persist($user);
+                $manager->flush();
+                
+                // Create personnal folder
+                mkdir($this->getParameter('public_directory'). "/users/" .$user->getIduser(), 0700);
+    
+                if(!$uploadFile)
+                {
+                    throw new BadRequestHttpException('"File" is required');
+                }
+                else
+                {
+                    $request->files->get('avatar')->move($this->getParameter('public_directory'). "/users/" .$user->getIduser(), $nameFile);
+                }
 
-            $manager->persist($user);
-            $manager->flush();
+                return $this->redirect('login');
+            }
         }
 
         return $this->render('forum/signin.html.twig');
