@@ -7,6 +7,15 @@
 	--snow-color: #FEFBF5;
 }
 
+h1 {
+	font-family: 'Cinzel', serif;
+	font-weight: 700 !important;
+}
+
+p, h5 {
+	font-family: 'Cinzel', serif;
+}
+
 /* #### Menu Burger #### */
 #menu__toggle {
   opacity: 0;
@@ -89,28 +98,43 @@
   display: block;
   padding: 12px 24px;
   color: var(--snow-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Cinzel', serif;
+  font-weight: 700 !important;
   font-size: 20px;
-  font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
+  text-transform: uppercase;
 }
+
 .menu__item:hover {
-  background-color: #CFD8DC;
+  background-color: var(--snow-color);
+  color: var(--black-color);
+  text-decoration: none;
 }
 
 /* #### Brand #### */
 
 .brand {
-	background-image: url("/assets/img/img_1.jpg");
+	/* background-image: url("/assets/img/img_1.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 }
 
-.brand img {
+.brand .logo img {
 	width: 400px;
 	margin-top: 200px;
 	margin-bottom: 200px;
+}
+
+.socialmedia img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+
+.social-content {
+	margin-top: 20px;
+	width: 100%;
 }
 
 /* #### Section #### */
@@ -122,12 +146,17 @@
 /* #### Manifesto #### */
 
 .manifesto {
-	background-color: var(--black-color);
+	background-image: url("https://images.unsplash.com/photo-1589493676751-8f4a014d95e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-color: var(--black-color); */
 	padding: 30px;
 }
 
 .manifesto .wrapper-text {
-	color: var(--snow-color);
+	color: var(--black-color);
 	text-align: center;
 	text-transform: uppercase;
 	padding: 4rem;
@@ -139,6 +168,17 @@
 .aboutus {
 	background-color: var(--snow-color);
 	padding: 30px;
+}
+
+.aboutus img {
+	border-radius: 10px;
+}
+
+.aboutus-card {
+	background-color: var(--snow-color);
+	padding: 50px;
+	border-radius: 10px;
+	box-shadow: -25px 30px 15px 0px  #a5a0a0;
 }
 
 .aboutus .label {
@@ -166,6 +206,11 @@
 	padding: 30px;
 }
 
+.selection .card {
+	border: 0 !important;
+	box-shadow: -5px 5px 15px 0px  #a5a0a0;
+}
+
 .selection .label {
 	color: var(--black-color);
 	text-align: center;
@@ -188,40 +233,85 @@
 	background-color: var(--black-color);
 	color: var(--snow-color);
 	margin-top: 60px;
-	margin-bottom: 30px;
 	border-radius: 20px;
 }
 
-/* #### Ethique #### */
+/* #### Dimension #### */
 
-.ethique {
-	background-color: var(--snow-color);
+.dimension {
+	background-color: var(--creme-color);
 	padding: 30px;
 }
 
-.ethique .wrapper-img {
-	background-color: red;
-	height: 100%; 
+.dimension .image{
+	height: 440px;
 	width: 100%;
+	background-color: var(--black-color);
+	margin-bottom: 30px;
+	border-radius: 10px;
+	box-shadow: -5px 5px 15px 0px  #a5a0a0;
+}
+
+.dimension img {
+	width:100%; 
+	height: 100%; 
+	object-fit: cover; 
+	object-position: 50% 100%;
 	border-radius: 10px;
 }
 
-.wrapper-img img {
-	max-width: 100%;
-    max-height: 100%;
+.dimension a {
+	color: var(--black-color) !important;
+	text-decoration: none !important;
 }
 
-.ethique .wrapper-text {
+.dimension .btn {
+	background-color: var(--black-color) !important;
+	color: var(--snow-color);
+}
+
+/* #### List Brands #### */
+
+.listBrands {
+	/* background-image: url("https://images.unsplash.com/photo-1528372531841-f1228963b0af?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fHBlcmZ1bWV8ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover; */
 	background-color: var(--creme-color);
+}
+
+.listBrands img {
 	padding: 20px;
-	border-radius: 10px;
 }
 
-.ethique .wrapper-text p {
+.listBrands .wrapper-text {
 	color: var(--black-color);
+	text-align: center;
+	text-transform: uppercase;
+	padding: 4rem;
+	width: 100%;
 }
 
-.ethique .label {
+/* #### Blog #### */
+
+.blog {
+	background-color: var(--snow-color);
+	display: block;
+	padding: 30px;
+}
+
+.blog .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
+}
+
+.blog .label {
+	/* background-color: var(--black-color); */
 	color: var(--black-color);
 	text-align: center;
 	text-transform: uppercase;
@@ -229,98 +319,44 @@
 	width: 100%;
 }
 
-.ethique .btn {
-	background-color: var(--black-color) !important;
-	color: var(--snow-color);
+.blog .link p {
+	font-size: 14px;
 }
 
-/* #### Solidaire #### */
+/* #### Forum #### */
 
-.solidaire {
+.forum {
 	background-color: var(--creme-color);
+	display: block;
 	padding: 30px;
 }
 
-.solidaire .wrapper-img {
-	background-color: red;
-	height: 100%; 
-	width: 100%;
-	border-radius: 10px;
+.forum .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 20px auto;
 }
 
-.wrapper-img img {
-	max-width: 100%;
-    max-height: 100%;
+.forum .link p {
+	font-size: 14px;
 }
 
-.solidaire .wrapper-text {
-	background-color: var(--snow-color);
-	padding: 20px;
-	border-radius: 10px;
-}
-
-.solidaire .wrapper-text p {
-	color: var(--black-color);
-}
-
-.solidaire .label {
+.forum .label {
+	/* background-color: var(--black-color); */
 	color: var(--black-color);
 	text-align: center;
 	text-transform: uppercase;
 	padding: 2rem;
 	width: 100%;
-}
-
-.solidaire .btn {
-	background-color: var(--black-color) !important;
-	color: var(--snow-color);
-}
-
-/* #### Ecologique #### */
-
-.ecologique {
-	background-color: var(--snow-color);
-	padding: 30px;
-}
-
-.ecologique .wrapper-img {
-	background-color: red;
-	height: 100%; 
-	width: 100%;
-	border-radius: 10px;
-}
-
-.wrapper-img img {
-	max-width: 100%;
-    max-height: 100%;
-}
-
-.ecologique .wrapper-text {
-	background-color: var(--creme-color);
-	padding: 20px;
-	border-radius: 10px;
-}
-
-.ecologique .wrapper-text p {
-	color: var(--black-color);
-}
-
-.ecologique .label {
-	color: var(--black-color);
-	text-align: center;
-	text-transform: uppercase;
-	padding: 2rem;
-	width: 100%;
-}
-
-.ecologique .btn {
-	background-color: var(--black-color) !important;
-	color: var(--snow-color);
 }
 
 /* #### Team #### */
 
 .team {
+	background-color: var(--snow-color);
 	display: block;
 	padding: 30px;
 }
@@ -370,7 +406,7 @@
 /* #### Contact #### */
 
 .contact {
-	padding: 30px;
+	/* padding: 30px; */
 	background-color: var(--creme-color);
 }
 
@@ -398,17 +434,13 @@
 	margin-right: 20px;
 }
 
-.socialmedia img {
-	width: 30px;
-	height: 30px;
-	margin: 10px;
+/* #### Newsletter #### */
+
+.newsletter {
+	background-color: var(--snow-color);
 }
 
-.social-content {
-	margin-top: 20px;
-}
-
-.newsletter-content .btn {
+.newsletter .btn {
 	background-color: var(--black-color);
 	color: var(--snow-color);
 	border-radius: 20px;
