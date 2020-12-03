@@ -12,8 +12,8 @@ h1 {
 	font-weight: 700 !important;
 }
 
-p, h5, span {
-	font-family: 'Cinzel', serif;
+p, span, h2, h5, a{
+	font-family: 'Josefin Sans', sans-serif;;
 }
 
 /* #### Menu Navigation #### */
@@ -53,21 +53,10 @@ p, h5, span {
     color: #ffb294;
 }
 
-.return-website {
-	background-color: #ffffff;
-	color: #F7B387;
-	border-radius: 10px;
-	width: 75px;
-	height: 40px;
-}
-
-.return-website:hover {
-	background-color: #FD5F79;
-	color: #F7B387;
-}
-
-.return-website i {
-	margin-right: 5px;
+.redirect {
+	/* background-color: var(--gold-color); */
+	/* padding: 15px; */
+	color: var(--gold-color);
 }
 
 /* #### Menu Navigation Dashboard #### */
@@ -243,14 +232,14 @@ p, h5, span {
 }
 
 .aboutus img {
-	border-radius: 10px;
+	border-radius: 8px;
 }
 
 .aboutus-card {
 	background-color: var(--snow-color);
 	padding: 50px;
-	border-radius: 10px;
-	box-shadow: -25px 30px 15px 0px  #a5a0a0;
+	border-radius: 8px;
+	box-shadow: -25px 25px 15px 0px  #a5a0a0;
 }
 
 .aboutus .label {
@@ -279,7 +268,8 @@ p, h5, span {
 }
 
 .selection .card {
-	border: 0 !important;
+	border: 0px !important;
+	border-radius: 8px !important;
 	box-shadow: -5px 5px 15px 0px  #a5a0a0;
 }
 
@@ -300,12 +290,16 @@ p, h5, span {
 	margin: 20px auto;
 }
 
+.selection .card-title {
+	text-align: center;
+}
+
 .selection .btn {
 	width: 200px;
 	background-color: var(--black-color);
 	color: var(--snow-color);
 	margin-top: 60px;
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 /* #### Dimension #### */
@@ -316,11 +310,10 @@ p, h5, span {
 }
 
 .dimension .image{
-	height: 440px;
+	height: 320px;
 	width: 100%;
-	background-color: var(--black-color);
 	margin-bottom: 30px;
-	border-radius: 10px;
+	border-radius: 8px;
 	box-shadow: -5px 5px 15px 0px  #a5a0a0;
 }
 
@@ -329,7 +322,7 @@ p, h5, span {
 	height: 100%; 
 	object-fit: cover; 
 	object-position: 50% 100%;
-	border-radius: 10px;
+	border-radius: 8px;
 }
 
 .dimension a {
@@ -492,7 +485,6 @@ p, h5, span {
 }
 
 .contact .label {
-	/* background-color: var(--black-color); */
 	color: var(--black-color);
 	text-align: center;
 	text-transform: uppercase;
@@ -615,7 +607,7 @@ a{color:inherit;text-decoration:none}
 	background:rgba(255,255,255,.1);
 }
 .login-form .group input[data-type="password"]{
-	text-security:circle;
+	text-security: circle;
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
@@ -700,4 +692,147 @@ footer p {
 
 footer {
     background-color: var(--snow-color);
+}
+
+footer .social {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+footer .social img {
+	width: 24px;
+	margin: 5px;
+}
+
+footer .social p {
+	margin: 0;
+	margin-right: 10px;
+}
+
+/* #### Article #### */
+
+.article {
+	background-color: var(--creme-color);
+	padding: 180px;
+}
+
+.article .cover {
+	height: 440px;
+	width: 100%;
+	background-color: var(--black-color);
+	margin-bottom: 30px;
+	border-radius: 10px;
+	box-shadow: -5px 5px 15px 0px  #a5a0a0;
+}
+
+.article .cover img {
+	width:100%; 
+	height: 100%; 
+	object-fit: cover; 
+	object-position: 50% 100%;
+	border-radius: 0px;
+}
+
+.header-content {
+	margin-top: 40px;
+}
+
+.article-content {
+	margin-top: 40px;
+}
+
+.author {
+	width: 420px;
+	height: 100%;
+	border-radius: 0px;
+	background-color: var(--snow-color);
+	box-shadow: -5px 5px 15px 0px  #a5a0a0;
+	padding: 20px;
+	margin-top: -100px;
+	z-index: 1;
+	margin-right: 10px;
+}
+
+.author img {
+	width: 90px;
+	height: 90px;
+	border-radius: 50px;
+	margin-right: 20px;
+}
+
+.author p {
+	margin: 0;
+}
+
+.lead {
+	margin-top: 20px;
+}
+
+.category h5 {
+	color: var(--gold-color);
+}
+
+.social-share {
+	margin-top: 40px;
+}
+
+.btn-facebook a {
+	background-color: var(--gold-color) !important;
+	width: 100%;
+	padding: 10px;
+	border-radius: 20px;
+	color: var(--snow-color);
+	text-decoration: none !important;
+}
+
+.btn-facebook img {
+	width: 18px;
+	color: var(--snow-color);
+	margin-right: 10px;
+}
+
+/* #### Blog #### */
+
+.blog-header {
+	background-color: var(--creme-color);
+	padding: 40px;
+}
+
+.blog-header img {
+	width: 80%;
+}
+
+.thumbnail {
+	height: 180px;
+	width: 100%;
+	background-color: var(--black-color);
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+
+.article-card {
+	background-color: red;
+	width: 100%;
+	height: 100%;
+}
+
+.thumbnail img {
+	width:100%; 
+	height: 100%; 
+	object-fit: cover; 
+	object-position: 50% 100%;
+	border-radius: 0px;
+}
+
+.btn-more {
+	background-color: var(--black-color);
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 20px;
+}
+
+.btn-more a {
+	color: var(--snow-color);
 }
