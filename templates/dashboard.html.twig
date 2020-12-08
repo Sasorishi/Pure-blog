@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>PURE</title>
+        <title>Promessence - Dashboard</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
@@ -34,7 +34,7 @@
             </div>
         </header> -->
         <header>
-            <nav class="navbar navbar-expand-lg navbar-blog-background navbar-default sticky-top logo-brand">
+            <nav class="navbar navbar-expand-lg navbar-dashboard-background navbar-default sticky-top logo-brand">
                 <a href="" class="navbar-brand" href="#"><img src="{{ asset('assets/img/logo-white.png') }}" alt="logo-brand-sakana"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,10 +52,10 @@
                             <a class="nav-item nav-link active navbar-text-dashboard" href="{{ path('dashboard_article') }}">Articles<span class="sr-only"></span></a>
                         </li>
                         <li class="mr-3">
-                            <a class="nav-item nav-link active navbar-text-dashboard" href="">Utilisateurs<span class="sr-only"></span></a>
+                            <a class="nav-item nav-link active navbar-text-dashboard" href="{{ path('dashboard_user') }}">Utilisateurs<span class="sr-only"></span></a>
                         </li>
                         <li class="mr-3">
-                            <a class="nav-item nav-link active navbar-text-dashboard" href="">Evenements<span class="sr-only"></span></a>
+                            <a class="nav-item nav-link active navbar-text-dashboard" href="{{ path('dashboard_event') }}">Evenements<span class="sr-only"></span></a>
                         </li>
                         {% if app.user %}
                             <li class="mr-3">
@@ -70,11 +70,11 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
-        <footer>
+        <footer class="dashboard-footer">
           <div class="container">
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 copyright text-center text-white">
-                      <p class="h6">© All right Reversed.</p>
+                      <p class="h6">© Project Innov'nez 2020 - 2021 | Promessence | Groupe 4</p>
                   </div>
                   <hr>
               </div>	

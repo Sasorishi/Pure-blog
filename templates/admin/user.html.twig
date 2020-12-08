@@ -1,0 +1,57 @@
+{% extends 'dashboard.html.twig' %}
+{% block body %}
+
+    <section class="dashboard">
+        <div class="container-fluid">
+            <div class="label">
+                <h1>Utilisateurs</h1>
+                <span class="underline"></span>
+            </div>
+
+            <div class="mb-3" id="myDiv">
+                <table id="table" data-toggle="table" data-search="true" data-show-columns="true" data-pagination="true" data-pagination-loop="false" data-cookie="true"
+                data-cookie-id-table="saveId" data-show-export="true" data-mobile-responsive="true" data-show-toggle="true">
+                    <thead>
+                        <tr>
+                            <th data-field="iduser" data-sortable="true">idUser</th>
+                            <th data-field="firstname" data-sortable="true">Prénom</th>
+                            <th data-field="lastname" data-sortable="true">Nom</th>
+                            <th data-field="sexe" data-sortable="true">Sexe</th>
+                            <th data-field="email" data-sortable="true">Email</th>
+                            <th data-field="password" data-sortable="true">Mot de passe</th>
+                            <th data-field="avatar" data-sortable="true">Avatar</th>
+                        </tr>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>
+                                    <span title="{{ user.iduser }}">{{ user.iduser }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ user.firstname }}">{{ user.firstname }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ user.lastname }}">{{ user.lastname }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ user.sexe }}">{{ user.sexe }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ user.email }}">{{ user.email }}</span>
+                                </td>
+                                <td>
+                                    <span title="{{ user.password }}">{{ user.password }}</span>
+                                </td>
+                                <td>
+                                    <a target="_blank" href=""><span title="{{ user.avatar }}">{{ user.avatar }}</span></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

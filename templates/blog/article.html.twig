@@ -1,20 +1,21 @@
 {% extends 'blog.html.twig' %}
 {% block body %}
-<h1>article</h1>
 
 <section class="article">
     <div class="container-fluid">
         <div class="row">
             <div class="cover">
-                <img src="https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fG5hdHVyZXxlbnwwfDB8MHw%3D&auto=format&fit=crop&w=800&q=60"
+                <img src="{{ asset('../articles/' ~ article.idarticle ~ '/' ~ article.thumbnail) }}"
                 alt="img_article">
             </div>
             <div class="author d-flex flex-row justify-content-center align-items-center ml-auto">
                 <img class="img-fluid" src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="author">
                 <div class="flex-column">
-                    <p>namenamename name</p>
+                    <p class="firstname">{{ article.firstname }}</p> 
+                    <p class="lastname">{{ article.lastname }}</p>
                     <p>Rédactrice</p>
-                    <p>00/00/0000</p>
+                    <p>{{ article.created|date("d/m/Y") }}</p>
+                    <!-- <p>Dimanche 00 Décembre 0000</p> -->
                 </div>
             </div>
         </div>
@@ -23,18 +24,15 @@
             <div class="col-10 p-0">
                 <div class="header-content">
                     <div class="category">
-                        <h5>Categorie</h5>
+                        <h5>{{ article.label }}</h5>
                     </div>
                     
                     <div class="title">
-                        <h1>Title</h1>
+                        <h1>{{ article.title }}</h1>
                     </div>
 
                     <div class="lead">
-                        <p>Consequat laborum adipisicing cillum excepteur non exercitation culpa cillum voluptate voluptate ex id
-                            anim dolor. Aliquip veniam in cillum reprehenderit sit. Ex exercitation consectetur fugiat pariatur
-                            occaecat culpa et laborum mollit. Ea aute exercitation officia ut magna do eiusmod aliquip incididunt do
-                            reprehenderit elit quis nostrud.</p>
+                        <p>{{ article.lead }}</p>
                     </div> 
                 </div>
             </div>
@@ -43,51 +41,17 @@
         <div class="row">
             <div class="col-12 p-0">
                 <div class="article-content">
-                    <p>Ut commodo consequat aute veniam adipisicing quis in nulla labore incididunt. Est aute esse id anim excepteur
-                        fugiat laborum fugiat. Quis irure exercitation in laboris culpa id incididunt laborum.
-            
-                        In reprehenderit ex exercitation sit reprehenderit. Aliquip velit dolore consequat ad esse reprehenderit
-                        esse. Laboris ea magna id culpa ex consectetur enim ea exercitation labore. Velit consectetur cillum non
-                        tempor qui sunt nostrud consectetur. Elit quis laboris qui irure proident nisi nisi sint exercitation
-                        pariatur laboris ullamco.
-            
-                        Culpa irure eu ad et quis exercitation officia officia excepteur officia Lorem magna. Amet est cupidatat
-                        aliqua labore mollit amet dolor adipisicing nulla do consectetur cupidatat reprehenderit. Consectetur anim
-                        elit nostrud qui commodo dolore incididunt. Deserunt aute elit eiusmod enim non amet officia in quis.
-            
-                        Qui labore commodo reprehenderit aute magna magna culpa esse do. Voluptate id culpa irure proident ullamco
-                        consectetur nostrud. Consectetur culpa labore eu esse veniam amet.
-            
-                        Cupidatat ut eu in et. Ipsum eu proident ipsum qui consectetur. Esse labore minim anim consectetur. Ut nisi
-                        eu enim non anim cillum officia fugiat minim consectetur dolor. Voluptate sit est id sint pariatur.
-            
-                        Sit magna amet aute duis officia laboris anim cillum fugiat cillum et officia cupidatat esse. Ut ut laboris
-                        sunt nisi pariatur fugiat aute amet Lorem quis non consectetur. Lorem magna ea officia officia nostrud.
-            
-                        Ad cillum voluptate qui adipisicing sint ex. Exercitation sunt ipsum Lorem aute. Duis excepteur duis sunt
-                        tempor eu ipsum deserunt cupidatat nostrud.
-            
-                        Eiusmod reprehenderit veniam irure sit aliqua. Aliqua sunt sint exercitation culpa dolore magna id
-                        adipisicing cillum. Aliqua voluptate commodo amet ad veniam pariatur non ea ullamco id ut. Dolore do
-                        pariatur ipsum sunt pariatur magna Lorem incididunt.
-            
-                        Velit sunt non laboris esse sunt dolore est nostrud Lorem nulla incididunt est. Laboris qui quis anim
-                        deserunt tempor nulla exercitation in irure ad. Dolore do aliqua exercitation incididunt consectetur aliqua
-                        proident reprehenderit elit nulla. Ad cupidatat dolor adipisicing excepteur.
-            
-                        Aliqua ut ipsum sit proident. Esse tempor voluptate irure labore ullamco id officia incididunt elit irure
-                        nostrud reprehenderit aliquip. In quis nisi enim reprehenderit aute incididunt enim. Lorem consequat tempor
-                        culpa esse duis deserunt pariatur mollit. Voluptate aliquip est fugiat commodo dolore elit.</p>
+                    <p>{{ article.content }}</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <div class="social-share d-flex flex-row justify-content-center align-item-center">
+                <div class="social-share d-flex flex-row justify-content-end align-item-center">
                     <div class="btn-facebook">
                         <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
-                            <span><img src="{{ asset('assets/icons/share-facebook.png') }}" alt=""> partager</span>
+                            <img src="{{ asset('assets/icons/share-facebook.png') }}" alt="share">
                         </a>
                     </div>
                 </div>

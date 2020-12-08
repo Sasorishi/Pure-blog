@@ -4,7 +4,7 @@
     <section class="dashboard">
         <div class="container-fluid">
             <div class="label">
-                <h1>Articles</h1>
+                <h1>Events</h1>
                 <span class="underline"></span>
             </div>
 
@@ -22,42 +22,30 @@
                     <thead>
                         <tr>
                             <th data-field="title" data-sortable="true">Titre</th>
-                            <th data-field="category" data-sortable="true">Catégorie</th>
-                            <th data-field="lead" data-sortable="true">Sous-titre</th>
-                            <th data-field="author" data-sortable="true">Auteur</th>
-                            <th data-field="created" data-sortable="true">Créer</th>
-                            <th data-field="status" data-sortable="true">Status</th>
+                            <th data-field="content" data-sortable="true">Description</th>
+                            <th data-field="created" data-sortable="true">Date</th>
                             <th data-field="thumbnail" data-sortable="true">Thumbnail</th>
                             <th data-field=""></th>
                         </tr>
                         <tbody>
-                            {% for article in articles %}
+                            {% for event in events %}
                             <tr>
                                 <td>
-                                    <span title="{{ article.title }}">{{ article.title }}</span>
+                                    <span title="{{ event.title }}">{{ event.title }}</span>
                                 </td>
                                 <td>
-                                    <span title="{{ article.label }}">{{ article.label }}</span>
+                                    <span title="{{ event.content }}">{{ event.content }}</span>
                                 </td>
                                 <td>
-                                    <span title="{{ article.lead }}">{{ article.lead }}</span>
+                                    <span title="{{ event.created|date("m/d/Y") }}">{{ event.created|date("m/d/Y - H:i") }}</span>
                                 </td>
                                 <td>
-                                    <span title="{{ article.firstname }}">{{ article.firstname }} {{ article.lastname }}</span>
+                                    <a target="_blank" href="{{ asset('../events/' ~ event.idevent ~ '/' ~ event.thumbnail) }}"><span title="{{ event.thumbnail }}">{{ event.thumbnail }}</span></a>
                                 </td>
                                 <td>
-                                    <span title="{{ article.created|date("m/d/Y") }}">{{ article.created|date("m/d/Y") }}</span>
-                                </td>
-                                <td>
-                                    <span title="{{ article.status }}">{{ article.status }}</span>
-                                </td>
-                                <td>
-                                    <a target="_blank" href="{{ asset('../articles/' ~ article.idarticle ~ '/' ~ article.thumbnail) }}"><span title="{{ article.thumbnail }}">{{ article.thumbnail }}</span></a>
-                                </td>
-                                <td>
-                                    <a target="_blank" href="{{ path('blog_article', {'id': article.idarticle }) }}"><i class="fas fa-eye" style="padding: 5px;" aria-hidden="true"></i></a>
+                                    <a target="_blank" href="{{ path('blog_event', {'id': event.idevent }) }}"><i class="fas fa-eye" style="padding: 5px;" aria-hidden="true"></i></a>
                                     <a href=""><i class="fas fa-edit" style="padding: 5px" aria-hidden="true"></i></a>
-                                    <a href="{{ path('dashboard_delete_article', {'id': article.idarticle }) }}"><i class="fas fa-trash-alt" style="padding: 5px" aria-hidden="true"></i></a>
+                                    <a href="{{ path('dashboard_delete_event', {'id': event.idevent }) }}"><i class="fas fa-trash-alt" style="padding: 5px" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -68,12 +56,12 @@
         </div>
     </section>
 
-    {# #### Add Article #### #}
+    {# #### Add Event #### #}
 	<div class="modal fade" id="addevent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ajouter un article</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Ajouter un event</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -81,23 +69,6 @@
 				<div class="modal-body">
 					<form method="post" enctype="multipart/form-data">
 						<div class="container">
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label for="exampleFormControlSelect1">Selectionner une catégorie</label>
-                                    <select class="form-control" name="categories">
-                                        {% for category in categories %}
-                                        <option value="{{ category.idcategorie }}">{{ category.label }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="exampleFormControlSelect1">Selectionner un status</label>
-                                    <select class="form-control" name="status">
-                                        <option value="publish">Publié</option>
-                                        <option value="work">Non publié</option>
-                                    </select>
-                                </div>
-                            </div>
 							<div class="form-row">
                                 <div class="form-group col-md-8">
                                     <label for="inputName">Titre</label>
@@ -108,10 +79,6 @@
 									<input class="form-control" id="inputDate" type="datetime-local" name="date">
 								</div>
                             </div>
-                            <div class="form-group">
-								<label for="inputTypologie">Sous-titre</label>
-								<textarea class="form-control" id="inputDescription" type="text" name="lead" placeholder="LES PARFUMS EVENT"></textarea>
-							</div>
 							<div class="form-group">
 								<label for="inputTypologie">Description</label>
 								<textarea rows="8" class="form-control" id="inputDescription" type="text" name="description" placeholder="LES PARFUMS EVENT AURA LIEU LE 12 MAI 2019 À PARIS EXPO PORTE DE VERSAILLES"></textarea>

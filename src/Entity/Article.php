@@ -31,21 +31,21 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=25, nullable=false)
+     * @ORM\Column(name="content", type="text", nullable=false)
      */
     private $content;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="thumbnail", type="string", length=25, nullable=false)
+     * @ORM\Column(name="thumbnail", type="string", length=255, nullable=false)
      */
     private $thumbnail;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="date", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=false)
      */
     private $created;
 
@@ -73,6 +73,11 @@ class Article
      * @ORM\Column(type="string", length=255)
      */
     private $status;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $lead;
 
     public function getIdarticle(): ?int
     {
@@ -159,6 +164,18 @@ class Article
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getLead(): ?string
+    {
+        return $this->lead;
+    }
+
+    public function setLead(string $lead): self
+    {
+        $this->lead = $lead;
 
         return $this;
     }

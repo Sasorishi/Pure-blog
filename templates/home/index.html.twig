@@ -19,7 +19,7 @@
     </section>
 
     <!-- #### Section About us #### -->
-    <section class="aboutus">
+    <section class="aboutus" id="aboutus">
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
@@ -30,7 +30,7 @@
                     <div class="col-8 col-lg-8 d-flex flex-column justify-content-center">
                         <div class="aboutus-card">
                             <div class="label">
-                                <h1>Qui sommes nous ?</h1>
+                                <h1>Notre histoire</h1>
                                 <span class="underline"></span>
                             </div>
                             <div class="wrapper-text">
@@ -68,6 +68,30 @@
                                     aliquip.
                                     Nisi magna magna commodo proident eu commodo non sint Lorem.</p>
                             </div>
+
+                            {# <div class="d-flex justify-content-end">
+                                <button type="button" class="btn">Rejoindre notre communauté</button>
+                            </div> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- #### Section Manifesto #### -->
+    <section class="manifesto" id="manifesto">
+        <div class="container-fluid">
+            <div class="wrapper-content">
+                <div class="row">
+                    <div class="col-12 col-lg-12 d-flex justify-content-center">
+                        <div class="wrapper-text">
+                            <p>PURE est naît d’un constat simple: Le monde du parfum n’est pas que industriel, et peut
+                                être engagé, écologique et solidaire. La démarche de PURE est de vous faire découvrir
+                                l’engagement de ces marques confidentielles qui nous tiennent à cœur tout en vous
+                                présentant leurs nouveaux produits responsables et durables. Des parfums bon pour nous
+                                et bon pour la planète.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -76,7 +100,7 @@
     </section>
 
     <!-- #### Section Selection #### -->
-    <section class="selection">
+    <section class="selection" id="selection">
         <div class="label">
             <h1>Notre sélection</h1>
             <span class="underline"></span>
@@ -136,28 +160,8 @@
         </div>
     </section>
 
-    <!-- #### Section Manifesto #### -->
-    <section class="manifesto">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-12 col-lg-12 d-flex justify-content-center">
-                        <div class="wrapper-text">
-                            <p>PURE est naît d’un constat simple: Le monde du parfum n’est pas que industriel, et peut
-                                être engagé, écologique et solidaire. La démarche de PURE est de vous faire découvrir
-                                l’engagement de ces marques confidentielles qui nous tiennent à cœur tout en vous
-                                présentant leurs nouveaux produits responsables et durables. Des parfums bon pour nous
-                                et bon pour la planète.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- #### Section Dimension #### -->
-    <section class="dimension">
+    <section class="dimension" id="dimension">
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
@@ -218,7 +222,7 @@
     </section> #}
 
     <!-- #### Section Blog #### -->
-    <section class="blog">
+    <section class="blog" id="blog">
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
@@ -251,7 +255,7 @@
     </section>
 
     <!-- #### Section Forum #### -->
-    <section class="forum">
+    <section class="forum" id="forum">
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
@@ -284,7 +288,7 @@
     </section>
 
     <!-- #### Section Team #### -->      
-    <section class="team">
+    <section class="team" id="team">
 		<div class="container-fluid">
             <div class="row">
                 <div class="label">
@@ -414,7 +418,7 @@
 	</section>
 
     <!-- #### Section Contact #### -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
@@ -424,9 +428,9 @@
                             <span class="underline"></span>
                         </div>
                         <p><img src="{{ asset('assets/icons/phone-call.png') }}" alt="phone"> +33 6 59 72 90 22</p>
-                        <p><img src="{{ asset('assets/icons/mail.png') }}" alt="email"> contact@innovnez.fr</p>
+                        <p><img src="{{ asset('assets/icons/mail.png') }}" alt="email"> contact@promessence.fr</p>
                         <p><img src="{{ asset('assets/icons/placeholder.png') }}" alt="adress"> 6 rue Jules Vallès, 77200 Torcy, Île-de-France</p>
-                        </div>
+                    </div>
                 </div>
 
                 <div class="col-6 p-0">
@@ -436,16 +440,25 @@
         </div>
     </section>
 
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
-                    <div class="col-6 d-flex flex-row justify-content-center">
-                        <h1>test</h1>
-                    </div>
-                    <div class="col-6 d-flex flex-row justify-content-center">
-                        <input type="email" class="form-control" placeholder="name@example.com">
-                        <button type="button" class="btn col-sm-2 col-form-label">Newsletter</button>
+                    <div class="col-12">
+                        <div class="newsletter-card d-flex flex-row justify-content-center align-items-center">
+                            <div class="col-12">
+                                <div class="label text-center">
+                                    <h1>Newsletter</h1>
+                                    <span class="underline"></span>
+                                    <p>Nulla tempor non aliquip deserunt minim ea esse occaecat Lorem irure.</p>
+                                </div>
+                                <input type="email" class="form-control" placeholder="name@example.com">
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="btn">Inscription</button>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </div>

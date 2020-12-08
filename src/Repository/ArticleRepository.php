@@ -47,4 +47,33 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findById($id): ?array
+    {
+        // select idArticle, label, title, content, thumbnail, created, status, firstName, lastName, avatar from categoriesArticle inner join article on categoriesArticle.idCategorie = article.idCategorie inner join administrator on article.idAdmin = administrator.idAdmin;
+        
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a.idarticle, c.label, a.title, a.content, a.thumbnail, a.created, a.status, a.lead, u.firstname, u.lastname, u.avatar from App\Entity\Categoriesarticle c LEFT JOIN App\Entity\Article a WITH c.idcategorie = a.idcategorie LEFT JOIN App\Entity\Administrator u WITH a.idadmin = u.idadmin where a.idarticle = :id'
+        )->setParameter('id', $id);
+
+        // returns an array of Product objects
+        return $query->getOneOrNullResult();
+    }
+
+    public function findAllArticles(): ?array
+    {
+        // select idArticle, label, title, content, thumbnail, created, status, firstName, lastName, avatar from categoriesArticle inner join article on categoriesArticle.idCategorie = article.idCategorie inner join administrator on article.idAdmin = administrator.idAdmin;
+        
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a.idarticle, c.label, a.title, a.content, a.thumbnail, a.created, a.status, a.lead, u.firstname, u.lastname, u.avatar from App\Entity\Categoriesarticle c INNER JOIN App\Entity\Article a WITH c.idcategorie = a.idcategorie INNER JOIN App\Entity\Administrator u WITH a.idadmin = u.idadmin ORDER BY a.created DESC'
+        );
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
 }

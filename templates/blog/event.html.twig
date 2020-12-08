@@ -1,0 +1,80 @@
+{% extends 'blog.html.twig' %}
+{% block body %}
+
+<section class="article">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="cover">
+                <img src="{{ asset('../events/' ~ event.idevent ~ '/' ~ event.thumbnail) }}"
+                alt="img_article">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-10 p-0">
+                <div class="header-content">
+                    <div class="category">
+                        <h5>{{ event.getCreated()|date("d/m/Y - H:i") }}</h5>
+                    </div>
+
+                    <div class="title">
+                        <h1>{{ event.getTitle() }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="article-content">
+                    <p>{{ event.getContent() }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex flex-row justify-content-center align-item-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <span>Participer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="social-share d-flex flex-row justify-content-end align-item-center">
+                    <div class="btn-facebook">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+                            <img src="{{ asset('assets/icons/share-facebook.png') }}" alt="share">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

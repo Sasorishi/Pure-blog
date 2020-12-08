@@ -12,6 +12,8 @@ use App\Entity\Categoriesforum;
 use App\Entity\Topics;
 use App\Entity\Post;
 use App\Entity\User;
+use App\Entity\Article;
+use App\Entity\Event;
 
 use \DateTime;
 
@@ -159,4 +161,62 @@ class AppController extends AbstractController
             'posts' => $posts
         ]);
     }
+
+    /**
+     * @Route("/blog", name="blog")
+     */
+    public function blog(): Response
+    {
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+
+        dump($articles);
+
+        return $this->render('blog/blog.html.twig', [
+            'controller_name' => 'AppController',
+            'articles' => $articles
+        ]);
+    }
+
+    /**
+     * @Route("/blog/article/{id}", name="blog_article")
+     */
+    public function article(Request $request, $id): Response
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findById($id);
+
+        if(!$article) 
+        {
+            throw $this->createNotFoundException(
+                'No article found for id '.$id
+            );
+        }
+
+        dump($article);
+
+        return $this->render('blog/article.html.twig', [
+            'controller_name' => 'AppController',
+            'article' => $article
+        ]);
+    }
+
+    /**
+     * @Route("/blog/event/{id}", name="blog_event")
+     */
+    public function event(Request $request, $id): Response
+    {
+        $event = $this->getDoctrine()
+            ->getRepository(Event::class)
+            ->find($id);
+
+
+        return $this->render('blog/event.html.twig', [
+            'controller_name' => 'AppController',
+            'event' => $event
+        ]);
+    }
+
 }
