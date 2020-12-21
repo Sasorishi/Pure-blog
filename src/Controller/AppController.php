@@ -52,11 +52,6 @@ class AppController extends AbstractController
         $topics = $this->getDoctrine()
             ->getRepository(Topics::class)
             ->findByCategories($id);
-        
-        if(!$topics)
-        {
-            throw $this->createNotFoundException('No topics');
-        }
 
         if($request->request->count() > 0)
         {
@@ -141,10 +136,7 @@ class AppController extends AbstractController
             ->getRepository(Post::class)
             ->findByTopics($id);
 
-        if(!$post)
-        {
-            throw $this->createNotFoundException('No post');
-        }
+        dump($posts);
         
         if($request->request->count() > 0)
         {
