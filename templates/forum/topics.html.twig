@@ -1,24 +1,35 @@
 {% extends 'forum.html.twig' %}
 {% block body %}
 
-{% if topics is empty %}
-    <p>Aucun topics</p>
-{% else %}
-    {% for topic in topics %}
-        <a href="{{ path('post', {'id': topic.idtopics, 'topics': topic.topics}) }}">
-            <p>{{ topic.topics }}</p>
-        </a>
-    {% endfor %}
-{% endif %}
+<section class="topics">
+    <div class="container-fluid">
+        <div class="wrapper-content">
+        {% if topics is empty %}
+            <div class="row">
+                <div class="col-12">
+                    <p>Aucun topics</p>
+                </div>
+            </div>
+        {% else %}
+            {% for topic in topics %}
+                <a href="{{ path('post', {'id': topic.idtopics, 'topics': topic.topics}) }}">
+                    <p>{{ topic.topics }}</p>
+                </a>
+            {% endfor %}
+        {% endif %}
 
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Créer un nouveau topics
-    </button>
-{% else %}
-    <p>Connecter vous pour créer un nouveau topics</p>
-{% endif %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Créer un nouveau topics
+            </button>
+        {% else %}
+            <p>Connecter vous pour créer un nouveau topics</p>
+        {% endif %}
+
+        </div>
+    </div>
+</section>
 
 <!-- Modal -->
 <form method="post">
