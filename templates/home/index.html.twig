@@ -6,8 +6,16 @@
         <div class="container-fluid">
             <div class="wrapper-content">
                 <div class="row">
-                    <div class="mx-auto logo">
-                        <img src="{{ asset('assets/img/logo-black.png') }}" class="img-fluid" alt="Responsive image">
+                    <div class="mx-auto">
+                        <div class="logo">
+                            <div class="logo-icon mx-auto">
+                                <img src="{{ asset('assets/img/promessence-logo-black.png') }}" class="img-fluid" alt="Responsive image">
+                            </div>
+
+                            <img src="{{ asset('assets/img/pro-black.png') }}" class="img-fluid" alt="Responsive image">
+                            <span class="underline"></span>
+                            <p>Découvrez des marques uniques et engagées qui innovent </br> pour donner du sens au parfum de demain.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -86,7 +94,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 d-flex justify-content-center">
                         <div class="wrapper-text">
-                            <p>PURE est naît d’un constat simple: Le monde du parfum n’est pas que industriel, et peut
+                            <p>Promessence est naît d’un constat simple: Le monde du parfum n’est pas que industriel, et peut
                                 être engagé, écologique et solidaire. La démarche de PURE est de vous faire découvrir
                                 l’engagement de ces marques confidentielles qui nous tiennent à cœur tout en vous
                                 présentant leurs nouveaux produits responsables et durables. Des parfums bon pour nous
@@ -240,7 +248,7 @@
                         </p>
 
                         <div class="link d-flex flex-row justify-content-end">
-                            <a href="">
+                            <a href="{{ path('blog') }}">
                                 <p>Voir le blog <img width="12" src="{{ asset('assets/icons/right-arrow.png') }}" alt="arrow"></p>
                             </a>
                         </div>
@@ -277,7 +285,7 @@
                         </p>
                         
                         <div class="link d-flex flex-row justify-content-end">
-                            <a href="">
+                            <a href="{{ path('forum') }}">
                                 <p>Voir le forum <img width="12" src="{{ asset('assets/icons/right-arrow.png') }}" alt="arrow"></p>
                             </a>
                         </div>
@@ -304,7 +312,7 @@
                             <div class="team-img">
                                 <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Oualid LAHROUCHE</h5>
                                     <div class="job">
                                         <p>marketing manager</p>
                                     </div>
@@ -316,9 +324,9 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Daphné-Perryman-Holt.jpeg') }}" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Daphné PERRYMAN-HOLT</h5>
                                     <div class="job">
                                         <p>content manager</p>
                                     </div>
@@ -330,9 +338,9 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Elisa-Dupont.jpg') }}" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Elisa DUPONT</h5>
                                     <div class="job">
                                         <p>rédactrice</p>
                                     </div>
@@ -344,9 +352,9 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Elodie-Fattermichael.jpeg') }}" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Elodie FATTER-MICHAEL</h5>
                                     <div class="job">
                                         <p>rédactrice</p>
                                     </div>
@@ -360,7 +368,7 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Alban-On.jpg') }}" alt="avatar">
                                 <div class="team-name">
                                     <h5>Alban ON</h5>
                                     <div class="job">
@@ -374,9 +382,9 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Ylies-Benchouche.png') }}" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Ylies BENCHOUCHE</h5>
                                     <div class="job">
                                         <p>UI / UX designer</p>
                                     </div>
@@ -390,7 +398,7 @@
                             <div class="team-img">
                                 <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Charles PIERRARD</h5>
                                     <div class="job">
                                         <p>graphic designer</p>
                                     </div>
@@ -402,9 +410,9 @@
                     <div class="col-md-3">
                         <div class="team-content">
                             <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
+                                <img src="{{ asset('../team/Arnaud-Thomas.jpg') }}" alt="avatar">
                                 <div class="team-name">
-                                    <h5>Alban ON</h5>
+                                    <h5>Arnaud Thomas</h5>
                                     <div class="job">
                                         <p>éditeur</p>
                                     </div>
