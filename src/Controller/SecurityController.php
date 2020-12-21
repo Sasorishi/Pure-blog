@@ -69,26 +69,31 @@ class SecurityController extends AbstractController
 
                 // Get filename
                 $uploadFile = $request->files->get('avatar');
-                $nameFile = $request->files->get('avatar')->getClientOriginalName();
+                if(!$uploadFile)
+                {
+                    $nameFile = 'default_user.png';
+                }
+                else
+                {
+                    $nameFile = $request->files->get('avatar')->getClientOriginalName();
+                }
     
                 $user->setFirstname($request->request->get('firstName'))
                     ->setLastname($request->request->get('lastName'))
                     ->setSexe($request->request->get('sexe'))
                     ->setEmail($request->request->get('email'))
                     ->setAvatar($nameFile)
-                    ->setPassword($encoded);
+                    ->setPassword($encoded)
+                    ->setNickname($request->request->get('nickname'));
     
                 $manager->persist($user);
                 $manager->flush();
                 
                 // Create personnal folder
                 mkdir($this->getParameter('public_directory'). "/users/" .$user->getIduser(), 0700);
-    
-                if(!$uploadFile)
-                {
-                    throw new BadRequestHttpException('"File" is required');
-                }
-                else
+
+                // Transfert file
+                if($uploadFile)
                 {
                     $request->files->get('avatar')->move($this->getParameter('public_directory'). "/users/" .$user->getIduser(), $nameFile);
                 }

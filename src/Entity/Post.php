@@ -24,7 +24,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=25, nullable=false)
+     * @ORM\Column(name="content", type="string", length=255, nullable=false)
      */
     private $content;
 

@@ -23,6 +23,7 @@ create table user
     email varchar(45) not null,
     password varchar(255) not null,
     avatar varchar(255) null,
+    nickname varchar(255) no null,
     primary key (idUser)
 );
 

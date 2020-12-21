@@ -3,37 +3,69 @@
 
     <form method="post" enctype="multipart/form-data">
         <section class="section-login">
-            <div class="group">
-                <label class="label">Nom</label>
-                <input type="text" name="lastName" class="form-control">
-            </div>
-            <div class="group">
-                <label class="label">Prénom</label>
-                <input type="text" name="firstName" class="form-control">
-            </div>
-            <div class="group">
-                <label for="inputState">Sexe</label>
-                <select id="inputState" name="sexe" class="form-control">
-                  <option value="Homme">Homme</option>
-                  <option value="Femme">Femme</option>
-                </select>
-            </div>
-            <div class="group">
-                <label class="label">E-mail</label>
-                <input type="email" name="email" id="inputEmail" class="form-control">
-            </div>
-            <div class="group">
-                <label class="label">Mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control">
-            </div>
+            <div class="container">
+                <div class="login-form">
+                    <div class="main-div">
+                        <div class="panel">
+                            <h2>Inscription</h2>
+                            <p>Taper vos informations</p>
+                        </div>
+         
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" name="firstName" placeholder="Prénom">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" name="lastName" placeholder="Nom">
+                            </div>
+                        </div>
 
-            <div class="custom-file">
-                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-            </div>
-            <div class="group wrapper-button">
-                <input type="submit" class="button" value="Inscription">
-            </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Pseudo</label>
+                                <input type="text" class="form-control" name="nickname" placeholder="GrandMaitreDuParfum">
+                            </div>
+                        </div>
 
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="jean@gmail.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Sexe</label>
+                                <select name="sexe" class="form-control">
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Mot de passe</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Choisir votre image</label>
+                                <div class="custom-file">
+                                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Inscription</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </form>
 

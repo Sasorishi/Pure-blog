@@ -1,26 +1,55 @@
 {% extends 'forum.html.twig' %}
 {% block body %}
 
-<h1>{{ topics }}</h1>
+<section class="topics">
+    <div class="container-fluid">
+        <div class="wrapper-content">
+            <h1>{{ topics }}</h1>
+            {% if posts is empty %}
+                <div class="row">
+                    <div class="col-12">
+                        <p>Aucun message</p>
+                    </div>
+                </div>
+            {% else %}
+                {% for post in posts %}
+                <div class="row post">
+                    <div class="col-12">
+                        <div class="card-post">
+                            <div class="d-flex flex-row">
+                                {% if post.avatar == 'default_user.png' %}
+                                <img src="{{ asset('assets/img/default_user.png') }}" class="img-fluid" alt="avatar-user">
+                                {% else %}
+                                <img src="{{ asset('../users/' ~ post.iduser ~ '/' ~ post.avatar) }}" class="img-fluid" alt="avatar-user">
+                                {% endif %}
+                                <div class="flex-column align-items-center post-user-container">
+                                    <div class="user-information">
+                                        <span>{{ post.nickname }}</span>
+                                        <p>{{ post.created|date("m/d/Y") }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <p>{{ post.content|nl2br }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
 
-{% if posts is empty %}
-    <p>Aucun message</p>
-{% else %}
-    {% for post in posts %}
-        <p>{{ post.content }}</p>
-    {% endfor %}
-{% endif %}
-
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <form method="POST">
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Message</label>
-            <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="4"></textarea>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-reply">Répondre</button>
+                </form>
+            {% else %}
+                <p>Connecter vous pour répondre</p>
+            {% endif %}
         </div>
-        <button type="submit" class="btn btn-primary">Répondre</button>
-    </form>
-{% else %}
-    <p>Connecter vous pour répondre</p>
-{% endif %}
+    </div>
+</section>
 
 {% endblock %}

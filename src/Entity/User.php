@@ -64,6 +64,11 @@ class User implements UserInterface, \Serializable
      */
     private $avatar;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nickname;
+
     public function getIduser(): ?int
     {
         return $this->iduser;
@@ -197,6 +202,18 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
         ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    public function getNickname(): ?string
+    {
+        return $this->nickname;
+    }
+
+    public function setNickname(string $nickname): self
+    {
+        $this->nickname = $nickname;
+
+        return $this;
     }
 
 }

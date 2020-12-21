@@ -56,7 +56,7 @@ class PostRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            'SELECT t FROM App\Entity\Post t WHERE t.idtopics = :id ORDER BY t.created ASC'
+            'SELECT p.content, p.created, u.nickname, u.avatar, u.iduser  FROM App\Entity\Post p INNER JOIN App\Entity\User u WITH p.iduser = u.iduser WHERE p.idtopics = :id ORDER BY p.created ASC'
         )->setParameter('id', $id);
 
         // returns an array of Product objects
