@@ -12,7 +12,7 @@ h1 {
 	font-weight: 700 !important;
 }
 
-p, span, h2, h5, a{
+p, span, h2, h5, a, label{
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -23,7 +23,7 @@ p, span, h2, h5, a{
 }
 
 .logo-brand img{
-	width: 70px;
+	width: 100px;
 }
 
 .navbar-text {
@@ -199,8 +199,27 @@ p, span, h2, h5, a{
 
 .brand .logo img {
 	width: 400px;
-	margin-top: 200px;
-	margin-bottom: 200px;
+}
+
+.logo .underline {
+	display: block;
+	height: 4px;
+	width: 90px;
+	border-radius: 20px;
+	background: var(--black-color);
+	margin: 40px auto 40px;
+}
+
+.logo {
+	margin-top: 120px;
+	margin-bottom: 120px;
+	text-align: center;
+}
+
+.logo-icon {
+	width: 80px;
+	text-align: center;
+	margin-bottom: 40px;
 }
 
 .socialmedia img {
@@ -488,8 +507,11 @@ p, span, h2, h5, a{
 
 .team-name {
   	color: #635c76;
-	font-size: 18px;
 	text-align: center;
+}
+
+.team-name H5 {
+	font-size: 1rem;
 }
 
 .job {
@@ -800,12 +822,12 @@ footer .social p {
 
 /* #### Blog #### */
 
-.blog-header {
+.home-blog {
 	background-color: var(--creme-color);
 	padding: 40px;
 }
 
-.blog-header img {
+.home-blog img {
 	width: 80%;
 }
 
@@ -893,6 +915,66 @@ section .btn-add:hover {
 }
 
 .btn-valide:hover {
+	background-color: var(--gold-color);
+	color: var(--snow-color);
+}
+
+/* #### Forum #### */
+
+.home-forum {
+	background-color: var(--creme-color);
+	padding: 40px;
+}
+
+.home-forum img {
+	width: 80%;
+}
+
+/* #### Topics #### */
+
+.topics {
+	padding: 80px;
+}
+
+.card-post {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+	height: 100%;
+	border: solid 1px var(--black-color);
+}
+
+.post {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.post img {
+	width: 80px;
+}
+
+.post-user-container {
+	margin-top: auto;
+}
+
+.user-information {
+	margin-left: 20px;
+}
+
+.btn-reply {
+	width: 200px;
+	height: 40px;
+	background-color: var(--black-color);
+	color: var(--snow-color);
+	margin-top: 20px;
+	border-radius: 8px;
+	border: none !important;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn-reply:hover {
 	background-color: var(--gold-color);
 	color: var(--snow-color);
 }
