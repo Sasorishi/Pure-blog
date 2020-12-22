@@ -47,4 +47,16 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function checkEmail($value): ?Array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT u.iduser from App\Entity\User u WHERE u.email = :value'
+        )->setParameter('value', $value);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }
