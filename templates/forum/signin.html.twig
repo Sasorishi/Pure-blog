@@ -1,5 +1,10 @@
 {% extends 'forum.html.twig' %}
 {% block body %}
+    {% if response == "fail" %}
+        <div class="admin-text">
+            <div class="alert alert-danger">‘‘Email déjà utilisé‘‘</div>
+        </div>
+    {% endif %}
 
     <form method="post" enctype="multipart/form-data">
         <section class="section-login">
