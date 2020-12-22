@@ -39,10 +39,12 @@ class SecurityController extends AbstractController
      */
     public function signin(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response
     {
+        $response = '';
+
         if($request->isMethod('POST'))
         {
             // Check request if all champs isn't not empty or null
-            $arr = array('firstName', 'lastName', 'sexe', 'email', 'password');
+            $arr = array('firstName', 'lastName', 'sexe', 'email', 'password', 'nickname');
             foreach ($arr as $value) 
             {
                 if (!empty($request->request->get($value))) 
@@ -58,8 +60,13 @@ class SecurityController extends AbstractController
                 }
             }
 
+            // Check valide email
+            $checkEmail = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->checkEmail($request->request->get('email'));
+
             // Insert new user
-            if($addUser == true)
+            if($addUser == true && !empty($checkEmail))
             {
                 $user = new User();
 
@@ -100,9 +107,15 @@ class SecurityController extends AbstractController
 
                 return $this->redirect('login');
             }
+            else
+            {
+                $response = "fail";
+            }
         }
 
-        return $this->render('forum/signin.html.twig');
+        return $this->render('forum/signin.html.twig', [
+            'response' => $response
+        ]);
     }
 
     /**
