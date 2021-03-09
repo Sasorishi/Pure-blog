@@ -11,32 +11,8 @@
                 You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
             </div>
         {% endif %}
-        {{ dump(error) }}
-        <section class="login">
-            {# <div class="login-wrap">
-                <div class="login-html">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Connexion</label>
-                    <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Inscription</label>      
-                    <div class="login-form">
-                        <div class="sign-in-htm">
-                            <div class="group">
-                                <label class="label">E-mail</label>
-                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-                            </div>
-                            <div class="group">
-                                <label class="label">Mot de passe</label>
-                                <input type="password" name="password" id="inputPassword" class="form-control" required>
-                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                            </div>
-                            <div class="group wrapper-button">
-                                <input type="submit" class="button" value="Connexion">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> #}
 
-            
+        <section class="login"> 
             <div class="container">
                 <h1 class="form-heading">login Form</h1>
                 <div class="login-form">

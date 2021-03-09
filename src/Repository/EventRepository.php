@@ -47,4 +47,16 @@ class EventRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLastEvent(): ?Array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT e.idEvent, e.title, e.content, e.thumbnail, e.created from App\Entity\Event e ORDER BY e.idEvent'
+        )->setMaxResults(1);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

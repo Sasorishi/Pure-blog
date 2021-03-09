@@ -1,92 +1,132 @@
 {% extends 'blog.html.twig' %}
 {% block body %}
 
-    <section class="home-blog">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-6 d-flex flex-column justify-content-center align-item-center">
-                        <h1>Bienvenue sur le Blog</h1>
-                            <p>Mollit fugiat dolore quis veniam et aute officia deserunt nostrud exercitation mollit
-                                sunt ut ad. Sunt esse ad sunt aliqua amet et ex magna ea fugiat velit veniam. Enim magna
-                                cillum nisi sit mollit. Quis et commodo quis ex officia cillum Lorem amet tempor ea aute
-                                veniam quis. Ad anim deserunt amet officia aliqua deserunt est Lorem enim.
+<!-- #### Section Header #### -->
+<section class="brand blog-background">
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <a class="logo-brand" href="{{ path('home') }}"><img src="{{ asset('assets/img/pro-white.png') }}"
+                alt="logo-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                                Aliquip incididunt officia aute officia quis amet veniam amet enim laborum. Et ad id
-                                cillum eu nulla qui minim sint labore reprehenderit occaecat sint. Sint nulla magna
-                                occaecat reprehenderit eu ipsum qui culpa proident voluptate Lorem laboris consectetur
-                                consequat. Non cupidatat sint reprehenderit Lorem tempor deserunt non enim consequat
-                                irure nisi veniam. Tempor eiusmod laboris reprehenderit deserunt culpa ex do labore
-                                excepteur consectetur occaecat. Magna labore culpa commodo amet labore. Do ad do in
-                                mollit elit consectetur enim ullamco amet pariatur sunt sit eiusmod.</p>
-                    </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href=""><span class="navbar-text">articles</span></a>
+                </li>
+                {# <li class="nav-item active">
+                    <a class="nav-item nav-link active" href=""><span class="navbar-text">actualité</span></a>
+                </li> #}
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href=""><span class="navbar-text">événement</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href=""><span class="navbar-text">interview</span></span></a>
+                </li>
+            </ul>
+        </div>
 
-                    <div class="col-6 d-flex flex-row justify-content-center align-item-center">
-                        <img class="img-fluid mx-auto" src="{{ asset('assets/img/blog_home.png') }}" alt="blog_home">
-                    </div>
+        <div class="ml-auto d-flex">
+            <ul class="navbar-nav">
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('home') }}"><span
+                            class="navbar-text">site</span></a>
+                </li>
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('forum') }}"><span
+                            class="navbar-text">forum</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="wrapper-content">
+            <div class="row">
+                <div class="logo mx-auto">
+                    <h1>le coin lecture</h1>
+                    <p>tout savoir sur la parfumerie engagée</p>
+                </div>
+            </div>
+
+            <div class="row know_more">
+                <div class="d-flex flex-column mx-auto">
+                    <span>Découvrez PROMESSENCE</span>
+                    <img class="mx-auto" width="32" src="{{ asset('assets/icons/down-arrow.png') }}"
+                        alt="Responsive image">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="blog">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="blog-content">
-                    <div class="col-12">
-                        <h1>Les derniers articles</h1>
-                    </div>
-                    <div class="list-articles d-flex flex-row justify-content-start">
-                        <div class="col-3">
-                            <div class="article-card">
-                                <div class="thumbnail">
-                                    <img src="https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fG5hdHVyZXxlbnwwfDB8MHw%3D&auto=format&fit=crop&w=800&q=60" alt="img_article">
-                                </div>
-                                <p>Test</p>
-                                <p>00/00/0000</p>
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            <div class="article-card">
-                                <div class="thumbnail">
-                                    <img src="https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fG5hdHVyZXxlbnwwfDB8MHw%3D&auto=format&fit=crop&w=800&q=60" alt="img_article">
-                                </div>
-                                <p>Test Title</p>
-                                <p>00/00/0000</p>
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            <div class="article-card">
-                                <div class="thumbnail">
-                                    <img src="https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fG5hdHVyZXxlbnwwfDB8MHw%3D&auto=format&fit=crop&w=800&q=60" alt="img_article">
-                                </div>
-                                <p>Test</p>
-                                <p>00/00/0000</p>
-                            </div>
-                        </div>
-
-                        <div class="col-3">
-                            <div class="article-card">
-                                <div class="thumbnail">
-                                    <img src="https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fG5hdHVyZXxlbnwwfDB8MHw%3D&auto=format&fit=crop&w=800&q=60" alt="img_article">
-                                </div>
-                                <p>Test</p>
-                                <p>00/00/0000</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-end">
-                            <div class="btn-more">
-                                <a href="">Voir plus <img width="12" src="{{ asset('assets/icons/right-arrow.png') }}" alt="arrow"></a>
-                            </div>
-                        </div>
-                    </div>
+<section class="event">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 p-0">
+                <div class="event-img my-auto">
+                    <img class="img-fluid" src="{{ asset('../events/' ~ event[0].idEvent ~ '/' ~ event[0].thumbnail) }}"
+                        alt="img_event">
+                </div>
+            </div>
+            <div class="col-6 my-auto">
+                <div class="event-content">
+                    <h1>{{ event[0].title }}</h1>
+                    <p>{{ event[0].content }}</p>
+                    <a href="{{ path('blog_event', {'id': event[0].idEvent}) }}"><button type="button"
+                            class="btn">Lire plus ...</button></a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="blog">
+    <div class="label">
+        <h3>nos articles</h3>
+    </div>
+    <div class="container-fluid">
+        <div class="p-1">
+            <div class="row">
+                <div class="col-12 d-flex flex-row justify-content-center">
+                    <button type="button" class="btn mt-5 m-5 filter-blog">tous</button>
+                    <button type="button" class="btn mt-5 m-5 filter-blog">éthique</button>
+                    <button type="button" class="btn mt-5 m-5 filter-blog">écologie</button>
+                    <button type="button" class="btn mt-5 m-5 filter-blog">social</button>
+                </div>
+            </div>
+            <div class="blog-content">
+                <div class="list-articles d-flex flex-row justify-content-start">
+                    {% for article in articles %}
+                    {% if article.status != 'work' %}
+                    <div class="col-3">
+                        <div class="article-card">
+                            <a href="{{ path('blog_article', {'id': article.idarticle}) }}">
+                                <div class="thumbnail">
+                                    <img src="{{ asset('../articles/' ~ article.idarticle ~ '/' ~ article.thumbnail) }}"
+                                        alt="img_article">
+                                    <div class="article-category">
+                                        <span>{{ article.label }}</span>
+                                    </div>
+                                </div>
+                                <div class="article-title">
+                                    <p>{{ article.title }}</p>
+                                    {# <p>{{ article.lead }}</p> #}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    {{ knp_pagination_render(articles, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

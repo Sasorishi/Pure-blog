@@ -66,30 +66,19 @@ class SecurityController extends AbstractController
             ->checkEmail($request->request->get('email'));
 
             // Insert new user
-            if($addUser == true && !empty($checkEmail))
+            if($addUser == true && empty($checkEmail))
             {
                 $user = new User();
 
                 // Encode password
                 $plainPassword = $request->request->get('password');
                 $encoded = $encoder->encodePassword($user, $plainPassword);
-
-                // Get filename
-                $uploadFile = $request->files->get('avatar');
-                if(!$uploadFile)
-                {
-                    $nameFile = 'default_user.png';
-                }
-                else
-                {
-                    $nameFile = $request->files->get('avatar')->getClientOriginalName();
-                }
     
                 $user->setFirstname($request->request->get('firstName'))
                     ->setLastname($request->request->get('lastName'))
                     ->setSexe($request->request->get('sexe'))
                     ->setEmail($request->request->get('email'))
-                    ->setAvatar($nameFile)
+                    ->setAvatar('default_user.png')
                     ->setPassword($encoded)
                     ->setNickname($request->request->get('nickname'));
     
@@ -98,12 +87,6 @@ class SecurityController extends AbstractController
                 
                 // Create personnal folder
                 mkdir($this->getParameter('public_directory'). "/users/" .$user->getIduser(), 0700);
-
-                // Transfert file
-                if($uploadFile)
-                {
-                    $request->files->get('avatar')->move($this->getParameter('public_directory'). "/users/" .$user->getIduser(), $nameFile);
-                }
 
                 return $this->redirect('login');
             }
@@ -116,6 +99,34 @@ class SecurityController extends AbstractController
         return $this->render('forum/signin.html.twig', [
             'response' => $response
         ]);
+    }
+
+    /**
+     * @Route("/forum/profil", name="user_profil")
+     */
+    public function profil(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response
+    {
+        if($request->isMethod('POST'))
+        {
+            // Get filename
+            $uploadFile = $request->files->get('avatar');
+            if(!$uploadFile)
+            {
+                $nameFile = 'default_user.png';
+            }
+            else
+            {
+                $nameFile = $request->files->get('avatar')->getClientOriginalName();
+            }
+            
+            // Transfert file
+            if($uploadFile)
+            {
+                $request->files->get('avatar')->move($this->getParameter('public_directory'). "/users/" .$user->getIduser(), $nameFile);
+            }
+        }
+
+        return $this->render('forum/user.html.twig');
     }
 
     /**

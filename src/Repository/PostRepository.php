@@ -58,7 +58,20 @@ class PostRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             'SELECT p.content, p.created, u.nickname, u.avatar, u.iduser  FROM App\Entity\Post p INNER JOIN App\Entity\User u WITH p.iduser = u.iduser WHERE p.idtopics = :id ORDER BY p.created ASC'
         )->setParameter('id', $id);
+        
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 
+    public function findCategorieName($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT c.idcategorie, c.label FROM App\Entity\Post p INNER JOIN App\Entity\Topics t WITH p.idtopics = t.idtopics INNER JOIN App\Entity\Categoriesforum c WITH t.idcategorie = c.idcategorie WHERE p.idtopics = :id'
+        )->setParameter('id', $id);
+        
+        // select post.idTopics, categoriesforum.label from post left join topics on post.idTopics = topics.idTopics left join categoriesforum on topics.idCategorie = categoriesForum.idCategorie where post.idTopics = 33;
         // returns an array of Product objects
         return $query->getResult();
     }

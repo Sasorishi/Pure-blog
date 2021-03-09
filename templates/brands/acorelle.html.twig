@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<!-- #### Section Header #### -->
+<section class="brand">
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <a class="logo-brand" href="{{ path('home') }}"><img src="{{ asset('assets/img/pro-white.png') }}"
+                alt="logo-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-item nav-link active" href="{{ path('ethic') }}"><span class="navbar-text">éthique et
+                            santé</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('social') }}"><span class="navbar-text">social et
+                            solidaire</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('ecology') }}"><span
+                            class="navbar-text">écologique et impact environnemental</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('brandLiked') }}"><span class="navbar-text">coup
+                            de coeur &#9829;</span></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ml-auto d-flex">
+            <ul class="navbar-nav">
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('blog') }}"><span
+                            class="navbar-text">blog</span></a>
+                </li>
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('forum') }}"><span
+                            class="navbar-text">forum</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid dimension-header">
+        <div class="wrapper-content">
+            <div class="row">
+                <div class="mx-auto">
+                    <h1>Acorelle</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="wrapper-content">
+                    <img class="img-fluid"
+                        src="https://www.biopur.fr/3298/acorelle-creme-decolorante-visage-et-corps-sans-ammoniaque.jpg"
+                        alt="">
+                </div>
+            </div>
+
+            <div class="col-6 brand-description">
+                <div class="wrapper-content">
+                    <p>
+                        Acorelle est une marque française venant du cœur du Lot et Garonne, près de Agen. Elle est créée
+                        en 2006 par Régis Lelong qui voulait vendre des produits pour embellir la femme et en gardant
+                        les racines de sa région, très attachées à la valeur de la terre et au respect de la nature qui
+                        entoure le département, c’est en quelque sorte un hommage. 
+                    </p>
+                    <p>
+                        Il met à l’honneur quelques produits
+                        du terroir comme l’huile de prune, l’eau thermale… Le fondateur Régis Lelong n’a pas choisi
+                        cette idée sur un coup de tête, il a travaillé près de quinze années dans la beauté
+                        conventionnelle et il l’a quitté pour se mettre au vert et proposer des produits plus
+                        respectueux du corps, de la nature et sur la durabilité de ses produits. 
+                    </p>
+                    <p>
+                        Il propose des parfums, des produits d’épilation, des produits solaires, des déodorants, des soins pour les bébés et de
+                        la cosmétique végan. Régis Lelong veut que ses produits aient de la naturalité, de l’innovation,
+                        de l’efficacité, du plaisir. Chaque produit est pensé pour sa praticité et son application
+                        plaisante. En ce qui concerne les parfums Acorelle, ils sont sous-divisés en eau de parfum, eau
+                        de toilette, brume et eau fraiche. Ces parfums se retrouvent partout en France. Les produits
+                        sont certifiés pour la plupart bio et végan sauf quelques crèmes soins dont un des constituants
+                        provient des abeilles telles que la cire d’abeille et la propolis.
+                    </p>
+
+                    <div class="d-flex justify-content-start">
+                        <a target="_blank" href="https://www.acorelle.fr/"><button type="button" class="btn">découvrir
+                                les parfums</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

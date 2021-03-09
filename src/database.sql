@@ -53,7 +53,7 @@ create table event
     idEvent int(5) not null auto_increment,
     idAdmin int(5) not null,
     title varchar(255) not null,
-    content varchar(255) not null,
+    content text not null,
     thumbnail varchar(255) not null,
     created date not null,
     primary key (idEvent),

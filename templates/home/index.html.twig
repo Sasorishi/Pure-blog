@@ -1,476 +1,432 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    <!-- #### Section Brand #### -->
-    <section class="brand">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="mx-auto">
-                        <div class="logo">
-                            <div class="logo-icon mx-auto">
-                                <img src="{{ asset('assets/img/promessence-logo-black.png') }}" class="img-fluid" alt="Responsive image">
-                            </div>
-
-                            <img src="{{ asset('assets/img/pro-black.png') }}" class="img-fluid" alt="Responsive image">
-                            <span class="underline"></span>
-                            <p>Découvrez des marques uniques et engagées qui innovent </br> pour donner du sens au parfum de demain.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <img class="mx-auto" width="42" src="{{ asset('assets/icons/down-arrow.png') }}" alt="Responsive image">
-                </div>
-            </div>
+<!-- #### Section Header #### -->
+<section class="brand">
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <a class="logo-brand" href="{{ path('home') }}"><img src="{{ asset('assets/img/pro-white.png') }}" alt="logo-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-item nav-link active" href="{{ path('ethic') }}"><span class="navbar-text">éthique et
+                            santé</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('social') }}"><span class="navbar-text">social et
+                            solidaire</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('ecology') }}"><span
+                            class="navbar-text">écologique et impact environnemental</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('brandLiked') }}"><span class="navbar-text">coup
+                            de coeur &#9829;</span></span></a>
+                </li>
+            </ul>
         </div>
-    </section>
 
-    <!-- #### Section About us #### -->
-    <section class="aboutus" id="aboutus">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-4 col-lg-4">
-                        <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8cGVyZnVtZXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="">
-                    </div>
-
-                    <div class="col-8 col-lg-8 d-flex flex-column justify-content-center">
-                        <div class="aboutus-card">
-                            <div class="label">
-                                <h1>Notre histoire</h1>
-                                <span class="underline"></span>
-                            </div>
-                            <div class="wrapper-text">
-                                <p>Occaecat proident laborum magna quis tempor aute. Veniam consequat consequat nulla ipsum
-                                    voluptate minim elit cupidatat. Sit ex consectetur et pariatur laborum voluptate id
-                                    incididunt
-                                    nulla amet sunt. Voluptate et reprehenderit laborum minim magna qui culpa consequat
-                                    consectetur
-                                    culpa. Esse officia eu enim cupidatat irure. Laboris enim Lorem cillum officia minim do
-                                    dolor
-                                    mollit culpa. In tempor reprehenderit excepteur excepteur tempor.
-
-                                    Qui consectetur sunt id nulla non ad adipisicing eu enim dolore excepteur duis quis. Qui
-                                    enim
-                                    dolor minim deserunt. Magna ea exercitation Lorem fugiat. Ex est qui aliquip anim cillum
-                                    esse
-                                    velit adipisicing.
-
-                                    Ullamco ipsum esse consequat in proident do magna proident dolore esse. Sint excepteur
-                                    non sunt
-                                    velit nostrud officia aute reprehenderit esse culpa. Magna do aute ipsum velit eu mollit
-                                    consequat dolor culpa reprehenderit voluptate aliquip. Id excepteur et dolor nostrud
-                                    est. Ea
-                                    pariatur cupidatat mollit mollit consequat aute mollit ea labore incididunt consectetur
-                                    esse
-                                    veniam exercitation.
-
-                                    Reprehenderit pariatur quis proident do eiusmod elit pariatur esse magna anim esse nulla
-                                    esse
-                                    culpa. Ad mollit et nisi amet veniam in nulla ad cillum enim. Proident exercitation
-                                    aliqua
-                                    voluptate enim cillum aliquip enim et nulla dolor. Sit velit est consectetur tempor
-                                    nostrud
-                                    ipsum non mollit veniam. Sint esse amet excepteur ea ipsum ex. Mollit sint et non qui
-                                    aliquip.
-                                    Nisi magna magna commodo proident eu commodo non sint Lorem.</p>
-                            </div>
-
-                            {# <div class="d-flex justify-content-end">
-                                <button type="button" class="btn">Rejoindre notre communauté</button>
-                            </div> #}
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="ml-auto d-flex">
+            <ul class="navbar-nav">
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('blog') }}"><span class="navbar-text">blog</span></a>
+                </li>
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('forum') }}"><span class="navbar-text">forum</span></a>
+                </li>
+            </ul>
         </div>
-    </section>
-
-    <!-- #### Section Manifesto #### -->
-    <section class="manifesto" id="manifesto">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-12 col-lg-12 d-flex justify-content-center">
-                        <div class="wrapper-text">
-                            <p>Promessence est naît d’un constat simple: Le monde du parfum n’est pas que industriel, et peut
-                                être engagé, écologique et solidaire. La démarche de PURE est de vous faire découvrir
-                                l’engagement de ces marques confidentielles qui nous tiennent à cœur tout en vous
-                                présentant leurs nouveaux produits responsables et durables. Des parfums bon pour nous
-                                et bon pour la planète.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- #### Section Selection #### -->
-    <section class="selection" id="selection">
-        <div class="label">
-            <h1>Notre sélection</h1>
-            <span class="underline"></span>
-        </div>
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-3 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://production-eu01-dior.demandware.net/dw/image/v2/BDGF_PRD/on/demandware.static/-/Sites-master_dior/default/dw899c11b7/assets/Y0996116/Y0996116_C099600555_E03_GHC_fr_FR.jpg?sw=460&sh=498&sm=fit&imwidth=430" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://production-eu01-dior.demandware.net/dw/image/v2/BDGF_PRD/on/demandware.static/-/Sites-master_dior/default/dw899c11b7/assets/Y0996116/Y0996116_C099600555_E03_GHC_fr_FR.jpg?sw=460&sh=498&sm=fit&imwidth=430" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://production-eu01-dior.demandware.net/dw/image/v2/BDGF_PRD/on/demandware.static/-/Sites-master_dior/default/dw899c11b7/assets/Y0996116/Y0996116_C099600555_E03_GHC_fr_FR.jpg?sw=460&sh=498&sm=fit&imwidth=430" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://production-eu01-dior.demandware.net/dw/image/v2/BDGF_PRD/on/demandware.static/-/Sites-master_dior/default/dw899c11b7/assets/Y0996116/Y0996116_C099600555_E03_GHC_fr_FR.jpg?sw=460&sh=498&sm=fit&imwidth=430" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-center">
-                    <button type="button" class="btn">Voir plus</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- #### Section Dimension #### -->
-    <section class="dimension" id="dimension">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-4">
-                        <a href="">
-                            <div class="image">
-                                <img src="https://images.unsplash.com/photo-1442458017215-285b83f65851?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDJ8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="éthique">
-                            </div>
-                            <div class="label d-flex flex-row justify-content-center">
-                                <h2>éthique</h2>
-                            </div>
-                            <p>Cupidatat adipisicing deserunt velit do culpa dolor eiusmod duis cupidatat.</p>
-                        </a>
-                    </div>
-
-                    <div class="col-4">
-                        <a href="">
-                            <div class="image">
-                                <img src="https://images.unsplash.com/photo-1585337913966-114ba3cf1f80?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Zmxvd2VyfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60" alt="solidaire">
-                            </div>
-                            <div class="label d-flex flex-row justify-content-center">
-                                <h2>solidaire</h2>
-                            </div>
-                            <p>Quis exercitation quis veniam voluptate sunt eiusmod do incididunt cillum ad.</p>
-                        </a>
-                    </div>
-
-                    <div class="col-4">
-                        <a href="">
-                            <div class="image">
-                                <img src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="écologie">
-                            </div>
-                            <div class="label d-flex flex-row justify-content-center">
-                                <h2>écologique</h2>
-                            </div>
-                            <p>Ullamco enim et occaecat enim laboris labore do nostrud enim ullamco.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- #### Section List Brand #### -->
-    {# <section class="listBrands">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                   <div class="col-12">
-                        <a href=""><img width="180" src="{{ asset('assets/img/brands/omaie.png') }}" alt=""></a>
-                        <a href=""><img width="180" src="{{ asset('assets/img/brands/essential-parfums.png') }}" alt=""></a>
-                        <a href=""><img width="180" src="{{ asset('assets/img/brands/Floratropia.jpg') }}" alt=""></a>
-                        <a href=""><img width="180" src="{{ asset('assets/img/brands/PH Fragrances.png') }}" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> #}
-
-    <!-- #### Section Blog #### -->
-    <section class="blog" id="blog">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="label">
-                            <h1>Blog</h1>
-                            <span class="underline"></span>
-                        </div>
-                        <p>
-                            Consectetur consectetur aute cillum proident consectetur velit aliquip aute excepteur nisi
-                            veniam in. Labore non nulla dolor officia esse labore. Sit ullamco id eu nulla minim laboris
-                            commodo voluptate ullamco eiusmod in consequat minim amet. Minim sunt laboris nulla
-                            consequat ullamco tempor aliqua cillum quis sint. Cupidatat aliquip et adipisicing sit ut
-                            laborum et dolore ex sunt ut id.
-                        </p>
-
-                        <div class="link d-flex flex-row justify-content-end">
-                            <a href="{{ path('blog') }}">
-                                <p>Voir le blog <img width="12" src="{{ asset('assets/icons/right-arrow.png') }}" alt="arrow"></p>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-8">
-                        <img src="{{ asset('assets/img/blog_news.png') }}" width="80%" class="mx-auto d-block img-fluid" alt="Responsive image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- #### Section Forum #### -->
-    <section class="forum" id="forum">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-8">
-                        <img src="{{ asset('assets/img/people_talking.png') }}" width="60%" class="mx-auto d-block img-fluid" alt="Responsive image">
-                    </div>
-
-                    <div class="col-4">
-                        <div class="label">
-                            <h1>Forum</h1>
-                            <span class="underline"></span>
-                        </div>
-                        <p>
-                            Consectetur consectetur aute cillum proident consectetur velit aliquip aute excepteur nisi
-                            veniam in. Labore non nulla dolor officia esse labore. Sit ullamco id eu nulla minim laboris
-                            commodo voluptate ullamco eiusmod in consequat minim amet. Minim sunt laboris nulla
-                            consequat ullamco tempor aliqua cillum quis sint. Cupidatat aliquip et adipisicing sit ut
-                            laborum et dolore ex sunt ut id.
-                        </p>
-                        
-                        <div class="link d-flex flex-row justify-content-end">
-                            <a href="{{ path('forum') }}">
-                                <p>Voir le forum <img width="12" src="{{ asset('assets/icons/right-arrow.png') }}" alt="arrow"></p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- #### Section Team #### -->      
-    <section class="team" id="team">
-		<div class="container-fluid">
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="wrapper-content">
             <div class="row">
-                <div class="label">
-                    <h1>Notre équipe</h1>
-                    <span class="underline"></span>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 logo mx-auto">
+                    <img src="{{ asset('assets/img/ff.png') }}" class="img-fluid"
+                        alt="Responsive image">
+                    <p>Avec <strong>PROMESSENCE</strong>, découvrez des marques uniques et engagées qui innovent pour donner du sens au
+                        parfums de demain.</p>
                 </div>
+            </div>
+
+            <div class="row know_more">
+                <div class="d-flex flex-column mx-auto">
+                    <span>Découvrez PROMESSENCE</span>
+                    <img class="mx-auto" width="32" src="{{ asset('assets/icons/down-arrow.png') }}" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- #### Section About Us #### -->
+<section class="aboutus">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                <img class="img-fluid" src="{{ asset('assets/img/about-us.png') }}" alt="aboutus">
             </div>
             
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Oualid LAHROUCHE</h5>
-                                    <div class="job">
-                                        <p>marketing manager</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 aboutus-card">
+                <h2>promessence</h2>
+                
+                <p>Né de la collaboration entre 2 écoles, <strong>l’ECV Digital</strong> et <strong>l’Ecole Supérieure du Parfum</strong>, Promessence est la
+                    première plateforme digitale et interactive mettant en avant des marques de niche engagées dans le
+                    domaine du parfum durable.
+                </p>
+                <p>
+                    Notre objectif est de sensibiliser le consom’acteur à une parfumerie alternative, plus respectueuse de
+                    la planète au travers de marques de niche soutenant les mêmes valeurs, qu’elles soient <strong>éthiques</strong>,
+                    <strong>sociales</strong> et/ou <strong>environnementales</strong>.
+                </p>
+                <p>
+                    Plongez dans l'univers olfactif de ces marques uniques et responsables pour donnez du sens à vos usages
+                    et achat parfumés.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- #### Section Ethique #### -->
+<section class="dimension">
+    <div class="label">
+        <h3>éthique</h3>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="wrapper-content">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="{{ path('acorelle') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Acorelle.png') }}"
+                                alt="Responsive image"></a>
+                        </div>
+                        <div class="col-4">
+                            <a href="{{ path('floratropia') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Floratropia.png') }}"
+                                alt="Responsive image"></a>
+                        </div>
+                        <div class="col-4">
+                            <a href="{{ path('ajnalogie') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Ajnalogie.png') }}"
+                                alt="Responsive image"></a>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Daphné-Perryman-Holt.jpeg') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Daphné PERRYMAN-HOLT</h5>
-                                    <div class="job">
-                                        <p>content manager</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Elisa-Dupont.jpg') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Elisa DUPONT</h5>
-                                    <div class="job">
-                                        <p>rédactrice</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Elodie-Fattermichael.jpeg') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Elodie FATTER-MICHAEL</h5>
-                                    <div class="job">
-                                        <p>rédactrice</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Alban-On.jpg') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Alban ON</h5>
-                                    <div class="job">
-                                        <p>développeur</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Ylies-Benchouche.png') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Ylies BENCHOUCHE</h5>
-                                    <div class="job">
-                                        <p>UI / UX designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="https://randomuser.me/api/portraits/women/95.jpg" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Charles PIERRARD</h5>
-                                    <div class="job">
-                                        <p>graphic designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="team-content">
-                            <div class="team-img">
-                                <img src="{{ asset('../team/Arnaud-Thomas.jpg') }}" alt="avatar">
-                                <div class="team-name">
-                                    <h5>Arnaud Thomas</h5>
-                                    <div class="job">
-                                        <p>éditeur</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            <img class="mx-auto img-fluid" src="{{ asset('assets/img/ethic-under.png') }}" alt="Responsive image">
                         </div>
                     </div>
                 </div>
             </div>
-		</div>
-	</section>
 
-    <!-- #### Section Contact #### -->
-    <section class="contact" id="contact">
-        <div class="container-fluid">
+            <div class="col-6 m-0 dimension-white">
+                <div class="wrapper-content">
+                    <p>Puisque la durabilité s’inscrit dans la confiance, il est primordial d’aborder le sujet de
+                        l’éthique. Elle représente la morale, les valeurs, les règles de conduite que notre société a
+                        décidé de suivre pour avancer. Pour nous, la confiance se traduit par le respect et surtout par
+                        la transparence, et ce à tous les niveaux de développement d’une fragrance : formulation,
+                        sourcing, packaging, matériaux…
+                    </p>
+                    <br>
+                    <p>
+                        Vous retrouverez ces notions dans notre sélection de marques.
+                    </p>
+
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ path('ethic') }}"><button type="button" class="btn">Parfums éthique</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- #### Section Social & Solidaire #### -->
+<section class="dimension">
+    <div class="label">
+        <h3>social & solidaire</h3>
+    </div>
+
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 m-0 dimension-white">
+                    <div class="wrapper-content">
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="{{ path('ph-fragrances') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Ph-fragrance.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{ path('ormaie') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Ormaie.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{ path('parfumeur-du-monde') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Parfumeurs-du-monde.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <img class="mx-auto img-fluid" src="{{ asset('assets/img/social-under.png') }}" alt="Responsive image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="wrapper-content">
+                        <p>L’engagement, c'est avant tout une démarche tournée vers l’autre visant au bien être de la
+                            société. Comme on ne peut pas parler de durabilité sans engagement, et qu’il n’y a pas
+                            d’engagement sans interactions entre individus, mettre en avant cette dimension sociale et
+                            humanitaire était donc pour nous une évidence.
+                        </p>
+                        <br>
+                        <p>
+                            Nous vous invitons à découvrir nos marques
+                            engagées auprès de causes humanitaires fortes pour créer un monde meilleur, le monde de demain.
+                        </p>
+
+                        <div class="d-flex justify-content-end">
+                            <a href="{{ path('social') }}"><button type="button" class="btn">Parfums engagés</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<!-- #### Section Ecologique & Impact environnemental #### -->
+<section class="dimension">
+    <div class="label">
+        <h3>écologique & impact environnemental</h3>
+    </div>
+
+    <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <div class="wrapper-content">   
-                        <div class="label">
-                            <h1>Contact</h1>
-                            <span class="underline"></span>
+                    <div class="wrapper-content">
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="{{ path('parfums-bastille') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Bastille.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{ path('aemium') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Aemium.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
+                            <div class="col-4">
+                                <a href="{{ path('tolteca') }}"><img class="mx-auto img-fluid" src="{{ asset('assets/img/brands/Tolteca.png') }}"
+                                    alt="Responsive image"></a>
+                            </div>
                         </div>
-                        <p><img src="{{ asset('assets/icons/phone-call.png') }}" alt="phone"> +33 6 59 72 90 22</p>
-                        <p><img src="{{ asset('assets/icons/mail.png') }}" alt="email"> contact@promessence.fr</p>
-                        <p><img src="{{ asset('assets/icons/placeholder.png') }}" alt="adress"> 6 rue Jules Vallès, 77200 Torcy, Île-de-France</p>
+
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <img class="mx-auto img-fluid" src="{{ asset('assets/img/ecology-under.png') }}" alt="Responsive image">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6 p-0">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4584.982653736537!2d2.2966063114965096!3d48.87212341073213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdca52b0111%3A0xfda52a630faf0c6a!2sLouis%20Vuitton%20Maison%20Champs%20%C3%89lys%C3%A9es!5e0!3m2!1sfr!2sfr!4v1606496954056!5m2!1sfr!2sfr" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <div class="col-6 m-0 dimension-white">
+                    <div class="wrapper-content">
+                        <p>Le développement durable est indissociable de l’écologie, elle-même en lien direct avec les
+                            préoccupations liées à l'avenir et aux conditions de vie sur la planète. Elle inclut les notions
+                            de protection de la nature, de ses écosystèmes et de ses ressources : c’est pourquoi nous avons
+                            décidé de la mettre au cœur de nos principes.
+                        </p>
+                        <br>
+                        <p>
+                            A l’échelle de la parfumerie, on parle par exemple
+                            d’engagement écologique au niveau des flacons, des packagings ou encore du sourcing des matières
+                            premières naturelles, visible au travers de divers labels que vous découvrirez dans notre
+                            sélection de marques.
+                        </p>
+
+                        <div class="d-flex justify-content-end">
+                            <a href="{{ path('ecology') }}"><button type="button" class="btn">Parfums durables</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        
+    </div>
+</section>
 
-    <section class="newsletter" id="newsletter">
-        <div class="container-fluid">
-            <div class="wrapper-content">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="newsletter-card d-flex flex-row justify-content-center align-items-center">
-                            <div class="col-12">
-                                <div class="label text-center">
-                                    <h1>Newsletter</h1>
-                                    <span class="underline"></span>
-                                    <p>Nulla tempor non aliquip deserunt minim ea esse occaecat Lorem irure.</p>
-                                </div>
-                                <input type="email" class="form-control" placeholder="name@example.com">
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn">Inscription</button>
+<!-- #### Section Team #### -->
+<section class="team">
+    <div class="label">
+        <h3>notre équipe</h3>
+    </div>
+    <div class="container-fluid">
+        <div class="wrapper-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Oualid-Lahrouche.png') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Oualid LAHROUCHE</h5>
+                                <div class="job">
+                                    <p>marketing manager</p>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Daphne-Perryman-Holt.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Daphné PERRYMAN-HOLT</h5>
+                                <div class="job">
+                                    <p>content manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Elisa-Dupont.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Elisa DUPONT</h5>
+                                <div class="job">
+                                    <p>rédactrice</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Elodie-Fattermichael.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Elodie FATTER-MICHAEL</h5>
+                                <div class="job">
+                                    <p>rédactrice</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Alban-On.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Alban ON</h5>
+                                <div class="job">
+                                    <p>développeur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Ylies-Benchouche.png') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Ylies BENCHOUCHE</h5>
+                                <div class="job">
+                                    <p>UI / UX designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Charles-Pierrard.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Charles PIERRARD</h5>
+                                <div class="job">
+                                    <p>graphic designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Arnaud-Thomas.jpg') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Arnaud Thomas</h5>
+                                <div class="job">
+                                    <p>rédacteur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-content">
+                        <div class="team-img">
+                            <img src="{{ asset('../team/Jovan-MILIVOJEVIC.png') }}" alt="avatar">
+                            <div class="team-name">
+                                <h5>Jovan MILIVOJEVIC</h5>
+                                <div class="job">
+                                    <p>développeur</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- #### Section Contact #### -->
+<section class="contact">
+    <div class="label">
+        <h3>Contact</h3>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="wrapper-content">
+                    <p><img src="{{ asset('assets/icons/phone-call.png') }}" alt="phone"> +33 6 59 72 90 22</p>
+                    <p><img src="{{ asset('assets/icons/mail.png') }}" alt="email"> contact@promessence.fr</p>
+                    <p><img src="{{ asset('assets/icons/placeholder.png') }}" alt="adress"> 6 rue Jules Vallès, 77200
+                        Torcy, Île-de-France</p>
+                </div>
+            </div>
+
+            <div class="col-6 p-0">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4584.982653736537!2d2.2966063114965096!3d48.87212341073213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdca52b0111%3A0xfda52a630faf0c6a!2sLouis%20Vuitton%20Maison%20Champs%20%C3%89lys%C3%A9es!5e0!3m2!1sfr!2sfr!4v1606496954056!5m2!1sfr!2sfr"
+                    width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<!-- #### Section Header #### -->
+<section class="brand">
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <a class="logo-brand" href="{{ path('home') }}"><img src="{{ asset('assets/img/pro-white.png') }}"
+                alt="logo-brand"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-item nav-link active" href="{{ path('ethic') }}"><span class="navbar-text">éthique et
+                            santé</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('social') }}"><span class="navbar-text">social et
+                            solidaire</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('ecology') }}"><span
+                            class="navbar-text">écologique et impact environnemental</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active" href="{{ path('brandLiked') }}"><span class="navbar-text">coup
+                            de coeur &#9829;</span></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ml-auto d-flex">
+            <ul class="navbar-nav">
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('blog') }}"><span
+                            class="navbar-text">blog</span></a>
+                </li>
+                <li class="nav-item social">
+                    <a class="nav-item nav-link active" href="{{ path('forum') }}"><span
+                            class="navbar-text">forum</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid dimension-header">
+        <div class="wrapper-content">
+            <div class="row">
+                <div class="mx-auto">
+                    <h1>floratropia</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container-fluid">
+   
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrapper-content">
+                        <img class="img-fluid" src="https://www.milkmagazine.net/wp-content/uploads/2020/02/milk1200304140-650x810.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-6 brand-description">
+                    <div class="wrapper-content">
+                        <p>
+                            Floratropia renoue avec la nature sauvage du parfum avec des créations 100% naturelles, Vegan et
+                            responsables en toute transparence. Libérée de la pétrochimie, des colorants, des filtres UV et des
+                            emballages superflus, la marque veut inventer un futur beau et durable pour la parfumerie.
+                        </p>
+                        <p>
+                            Floratropia veut redonner aux compositions du caractère et de la singularité aux travers de belles
+                            matières naturelles, pour une expérience plus personnelle, avec des concentrés de parfums en moyenne
+                            6 fois plus élevés que ceux d’un parfum de luxe conventionnel. Les quatre parfums de la marque
+                            représentent les quatre éléments : l’eau, la terre, le feu, le ciel. Ce besoin de l’essentiel se
+                            traduit aussi par des parfums dont les flacons sont fabriqués en petite série selon un savoir-faire
+                            artisanal, ressourçables à l’infini, dotés d’un emballage minimalisé et optimisé carbone, et
+                            bénéficiants d’un circuit court made in France avec une fabrication à Grasse.
+                        </p>
+                        <p>
+                            Floratropia, c’est aussi un fort engagement envers les communautés cultivatrices, récoltantes et transformatrices, à
+                            travers des programmes de conservation et de valorisation durable en lien avec les plantes à parfum.
+                            3% des ventes sont ainsi reversés à l’ONG Noé – Man and Nature en faveur d’actions durables pour la
+                            préservation de la flore à parfum.
+                        </p>
+
+                        <div class="d-flex justify-content-start">
+                            <a target="_blank" href="https://floratropia.com/"><button type="button" class="btn">découvrir les parfums</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+    </div>
+
+</section>
+
+
+{% endblock %}

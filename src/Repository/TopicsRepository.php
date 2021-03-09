@@ -56,6 +56,18 @@ class TopicsRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
+            'SELECT t.idtopics, t.topics, count(p.idpost) as count FROM App\Entity\Topics t INNER JOIN App\Entity\Post p WITH t.idtopics = p.idtopics WHERE t.idcategorie = :id GROUP BY t.idtopics'
+        )->setParameter('id', $id);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
+    public function findAllTopics($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
             'SELECT t FROM App\Entity\Topics t WHERE t.idcategorie = :id'
         )->setParameter('id', $id);
 

@@ -16,6 +16,7 @@ use App\Entity\Article;
 use App\Entity\Event;
 
 use \DateTime;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AppController extends AbstractController
 {
@@ -49,9 +50,17 @@ class AppController extends AbstractController
      */
     public function topics($id, $topics, Request $request, Security $security): Response
     {
+        $category = $topics;
+
         $topics = $this->getDoctrine()
             ->getRepository(Topics::class)
             ->findByCategories($id);
+        
+        $topics = $this->getDoctrine()
+            ->getRepository(Topics::class)
+            ->findAllTopics($id);
+
+        dump($topics);
 
         if($request->request->count() > 0)
         {
@@ -64,7 +73,8 @@ class AppController extends AbstractController
 
         return $this->render('forum/topics.html.twig', [
             'controller_name' => 'AppController',
-            'topics' => $topics
+            'topics' => $topics,
+            'category' => $category
         ]);
     }
 
@@ -120,6 +130,8 @@ class AppController extends AbstractController
             ->setIdtopics($topics)
             ->setCreated($date);
 
+        dump($user->getIduser());
+
         $manager = $this->getDoctrine()->getManager();
         $manager->persist($post);
         $manager->flush();
@@ -132,11 +144,18 @@ class AppController extends AbstractController
      */
     public function post(Request $request, Security $security, $id, $topics): Response
     {
+        // Get reference entity
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
             ->findByTopics($id);
 
-        dump($posts);
+        // Get reference entity
+        $categorie = $this->getDoctrine()
+            ->getRepository(Post::class)
+            ->findCategorieName($id);
+
+        $categorieName = $categorie[0];
+        // dump($categorieName);
         
         if($request->request->count() > 0)
         {
@@ -150,24 +169,36 @@ class AppController extends AbstractController
         return $this->render('forum/post.html.twig', [
             'controller_name' => 'AppController',
             'topics' => $topics,
-            'posts' => $posts
+            'posts' => $posts,
+            'categorieName' => $categorieName
         ]);
     }
 
     /**
      * @Route("/blog", name="blog")
      */
-    public function blog(): Response
+    public function blog(Request $request, PaginatorInterface $paginator): Response
     {
-        $articles = $this->getDoctrine()
+        $listArticles = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findAll();
+            ->findAllArticles();
 
-        dump($articles);
+        $articles = $paginator->paginate(
+            $listArticles, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            10 // Nombre de résultats par page
+        );
+
+        $event = $this->getDoctrine()
+        ->getRepository(Event::class)
+        ->findLastEvent();
+
+        dump($event);
 
         return $this->render('blog/blog.html.twig', [
             'controller_name' => 'AppController',
-            'articles' => $articles
+            'articles' => $articles,
+            'event' => $event
         ]);
     }
 
@@ -211,4 +242,206 @@ class AppController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/ethique-et-santé", name="ethic")
+     */
+    public function ethic(): Response
+    {
+
+        return $this->render('home/ethic.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/social-et-solidaire", name="social")
+     */
+    public function social(): Response
+    {
+
+        return $this->render('home/social.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/ecologique-et-impact-environnemental", name="ecology")
+     */
+    public function ecology(): Response
+    {
+
+        return $this->render('home/ecology.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/coup-de-coeur", name="brandLiked")
+     */
+    public function brandLiked(): Response
+    {
+        return $this->render('home/brandLiked.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/aemium", name="aemium")
+     */
+    public function aemium(): Response
+    {
+        return $this->render('brands/aemium.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/aimée-de-mars", name="aimée-de-mars")
+     */
+    public function aimeeDeMars(): Response
+    {
+        return $this->render('brands/aimée-de-mars.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/ajnalogie", name="ajnalogie")
+     */
+    public function ajnalogie(): Response
+    {
+        return $this->render('brands/ajnalogie.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/bastille", name="parfums-bastille")
+     */
+    public function bastille(): Response
+    {
+        return $this->render('brands/parfums-bastilles.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/essential-parfum", name="essential-parfum")
+     */
+    public function essentialParfum(): Response
+    {
+        return $this->render('brands/essential-parfums.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/floratropia", name="floratropia")
+     */
+    public function floratropia(): Response
+    {
+        return $this->render('brands/floratropia.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/honoré-des-prés", name="honoré-des-prés")
+     */
+    public function honoreDesPrés(): Response
+    {
+        return $this->render('brands/honoré-des-prés.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/obvious", name="obvious")
+     */
+    public function obvious(): Response
+    {
+        return $this->render('brands/obvious.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/ormaie", name="ormaie")
+     */
+    public function ormaie(): Response
+    {
+        return $this->render('brands/ormaie.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/parfumeur-du-monde", name="parfumeur-du-monde")
+     */
+    public function parfumeurDuMonde(): Response
+    {
+        return $this->render('brands/parfumeurs-du-monde.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/ph-fragrances", name="ph-fragrances")
+     */
+    public function phFragrances(): Response
+    {
+        return $this->render('brands/ph-fragrances.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/tolteca", name="tolteca")
+     */
+    public function tolteca(): Response
+    {
+        return $this->render('brands/tolteca.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/100Bon", name="100Bon")
+     */
+    public function Bon(): Response
+    {
+        return $this->render('brands/100Bon.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/acorelle", name="acorelle")
+     */
+    public function acorelle(): Response
+    {
+        return $this->render('brands/Acorelle.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/maison-sybarite", name="maison-sybarite")
+     */
+    public function maisonSybarite(): Response
+    {
+        return $this->render('brands/maison-sybarite.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
+
+    /**
+     * @Route("/le-couvent", name="le-couvent")
+     */
+    public function leCouvent(): Response
+    {
+        return $this->render('brands/le-couvent.html.twig', [
+            'controller_name' => 'AppController'
+        ]);
+    }
 }
